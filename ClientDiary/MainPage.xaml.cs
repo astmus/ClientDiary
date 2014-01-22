@@ -41,12 +41,31 @@ namespace ClientDiary
 			// If selected item is null (no selection) do nothing
 			if (MainLongListSelector.SelectedItem == null)
 				return;
-
 			// Navigate to the new page
 			NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as CustomerRecord).ID, UriKind.Relative));
 
 			// Reset selected item to null (no selection)
 			MainLongListSelector.SelectedItem = null;
+		}
+
+		private void ClientsMenuItem_Click(object sender, EventArgs e)
+		{
+			NavigationService.Navigate(AppPages.Clients);
+		}
+
+		private void ServicesMenuItem_Click(object sender, EventArgs e)
+		{
+			NavigationService.Navigate(AppPages.Services);
+		}
+
+		private void StatisticMenuItem_Click(object sender, EventArgs e)
+		{
+			NavigationService.Navigate(AppPages.Statistic);
+		}
+
+		private void SettingsIconButton_Click(object sender, EventArgs e)
+		{
+			NavigationService.Navigate(AppPages.Settings);
 		}
 
 		// Sample code for building a localized ApplicationBar

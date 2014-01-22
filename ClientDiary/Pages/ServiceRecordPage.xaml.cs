@@ -11,10 +11,10 @@ using ClientDiary.Resources;
 
 namespace ClientDiary
 {
-	public partial class DetailsPage : PhoneApplicationPage
+	public partial class ServiceRecordPage : PhoneApplicationPage
 	{
 		// Constructor
-		public DetailsPage()
+		public ServiceRecordPage()
 		{
 			InitializeComponent();
 
