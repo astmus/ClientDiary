@@ -10,9 +10,9 @@ using Microsoft.Phone.Shell;
 
 namespace ClientDiary.Pages
 {
-	public partial class Clients : PhoneApplicationPage
+	public partial class ClientsPage : PhoneApplicationPage
 	{
-		public Clients()
+		public ClientsPage()
 		{
 			InitializeComponent();
 		}

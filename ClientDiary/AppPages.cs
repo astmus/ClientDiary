@@ -17,7 +17,7 @@ namespace ClientDiary
 		{
 			get 
 			{
-				return _clients ?? (_clients = new Uri("/Pages/Clients.xaml",UriKind.Relative)); 
+				return _clients ?? (_clients = new Uri("/Pages/ClientsPage.xaml",UriKind.Relative)); 
 			}
 		}
 
@@ -25,7 +25,7 @@ namespace ClientDiary
 		{
 			get
 			{
-				return _services ?? (_services = new Uri("/Pages/Services.xaml", UriKind.Relative));
+				return _services ?? (_services = new Uri("/Pages/ServicesPage.xaml", UriKind.Relative));
 			}
 		}
 
@@ -33,7 +33,7 @@ namespace ClientDiary
 		{
 			get
 			{
-				return _statistic ?? (_statistic = new Uri("/Pages/Statistic.xaml", UriKind.Relative));
+				return _statistic ?? (_statistic = new Uri("/Pages/StatisticPage.xaml", UriKind.Relative));
 			}
 		}
 
@@ -41,7 +41,7 @@ namespace ClientDiary
 		{
 			get
 			{
-				return _settings ?? (_settings = new Uri("/Pages/Settings.xaml", UriKind.Relative));
+				return _settings ?? (_settings = new Uri("/Pages/SettingsPage.xaml", UriKind.Relative));
 			}
 		}
 	}

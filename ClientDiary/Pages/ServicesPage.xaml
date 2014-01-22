@@ -1,5 +1,5 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="ClientDiary.Pages.Clients"
+    x:Class="ClientDiary.Pages.ServicesPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -22,7 +22,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="CLIENTS" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="SERVICES" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
