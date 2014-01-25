@@ -14,14 +14,15 @@ namespace ClientDiary
 {
 	public partial class MainPage : PhoneApplicationPage
 	{
+		DBManager _dbManager;
 		// Constructor
 		public MainPage()
 		{
 			InitializeComponent();
 
 			// Set the data context of the LongListSelector control to the sample data
-			DataContext = App.ViewModel;
-
+			DataContext = App.WorkFlowDataContext;
+			_dbManager = App.DbManager;
 			// Sample code to localize the ApplicationBar
 			//BuildLocalizedApplicationBar();
 		}
@@ -29,9 +30,9 @@ namespace ClientDiary
 		// Load data for the ViewModel Items
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
-			if (!App.ViewModel.IsDataLoaded)
+			if (!App.WorkFlowDataContext.IsDataLoaded)
 			{
-				App.ViewModel.LoadData();
+				App.WorkFlowDataContext.LoadData();
 			}
 		}
 
@@ -42,7 +43,7 @@ namespace ClientDiary
 			if (MainLongListSelector.SelectedItem == null)
 				return;
 			// Navigate to the new page
-			NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as CustomerRecord).ID, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ClientRecord).ID, UriKind.Relative));
 
 			// Reset selected item to null (no selection)
 			MainLongListSelector.SelectedItem = null;
@@ -66,6 +67,50 @@ namespace ClientDiary
 		private void SettingsIconButton_Click(object sender, EventArgs e)
 		{
 			NavigationService.Navigate(AppPages.Settings);
+		}
+
+		private void AddServiceRecordIconButton_Click(object sender, EventArgs e)
+		{
+			CustomMessageBox message;
+			if (_dbManager.Clients.Count() != 0)
+			{
+				message = new CustomMessageBox()
+				{
+					Content = "There aren't any clients",
+					LeftButtonContent = "Add new client",
+					RightButtonContent = "Cancel",
+					Tag = AppPages.Clients
+				};
+				message.Dismissed += OnDismissed;
+				message.Show();
+				return;
+			}
+			
+			if (_dbManager.Services.Count() == 0)
+			{
+				message = new CustomMessageBox()
+				{
+					Content = "There aren't any services",
+					LeftButtonContent = "Add new service",
+					RightButtonContent = "Cancel",
+					Tag = AppPages.Services
+				};
+				message.Dismissed += OnDismissed;
+				message.Show();
+				return;
+			}
+
+
+		}
+
+		void OnDismissed(object sender, DismissedEventArgs e)
+		{
+			CustomMessageBox box = sender as CustomMessageBox;
+			if (e.Result == CustomMessageBoxResult.LeftButton)
+			{
+				Uri addClientUri = AppPages.AddAction(box.Tag as Uri,AppPages.Actions.Add);
+				NavigationService.Navigate(addClientUri);	
+			}
 		}
 
 		// Sample code for building a localized ApplicationBar

@@ -21,12 +21,12 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="CLIENT DIARY" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Wokrflow" Style="{StaticResource PhoneTextNormalStyle}"/>
             <!--<TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>-->
         </StackPanel>
 
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <phone:LongListSelector x:Name="MainLongListSelector" Margin="0,0,-12,0" ItemsSource="{Binding Items}" SelectionChanged="MainLongListSelector_SelectionChanged">
+            <phone:LongListSelector x:Name="MainLongListSelector" Margin="0,0,-12,0" ItemsSource="{Binding Records}" SelectionChanged="MainLongListSelector_SelectionChanged">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
@@ -83,7 +83,7 @@
                 <shell:ApplicationBarMenuItem Text="Services" Click="ServicesMenuItem_Click"/>
                 <shell:ApplicationBarMenuItem Text="Statistic" Click="StatisticMenuItem_Click"/>
             </shell:ApplicationBar.MenuItems>
-            <shell:ApplicationBarIconButton IconUri="/Images/Icons/add.png" Text="add record"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/Icons/add.png" Text="add record" Click="AddServiceRecordIconButton_Click"/>
             <shell:ApplicationBarIconButton IconUri="/Images/Icons/feature.settings.png" Text="settings" Click="SettingsIconButton_Click"/>
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

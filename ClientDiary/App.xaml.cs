@@ -13,22 +13,29 @@ namespace ClientDiary
 {
 	public partial class App : Application
 	{
-		private static CustomersRecordsFlowViewModel viewModel = null;
+		private static ClientsRecordsViewModel _clientsRecords = null;
 
 		/// <summary>
 		/// A static ViewModel used by the views to bind against.
 		/// </summary>
 		/// <returns>The MainViewModel object.</returns>
-		public static CustomersRecordsFlowViewModel ViewModel
+		public static ClientsRecordsViewModel WorkFlowDataContext
 		{
 			get
 			{
 				// Delay creation of the view model until necessary
-				if (viewModel == null)
-					viewModel = new CustomersRecordsFlowViewModel();
+				if (_clientsRecords == null)
+					_clientsRecords = new ClientsRecordsViewModel();
 
-				return viewModel;
+				return _clientsRecords;
 			}
+		}
+
+		static DBManager _dbManager;
+		public static DBManager DbManager
+		{
+			get { return _dbManager ?? (_dbManager = new DBManager()); }
+			set { _dbManager = value; }
 		}
 
 		/// <summary>
@@ -86,9 +93,9 @@ namespace ClientDiary
 		private void Application_Activated(object sender, ActivatedEventArgs e)
 		{
 			// Ensure that application state is restored appropriately
-			if (!App.ViewModel.IsDataLoaded)
+			if (!App.WorkFlowDataContext.IsDataLoaded)
 			{
-				App.ViewModel.LoadData();
+				App.WorkFlowDataContext.LoadData();
 			}
 		}
 

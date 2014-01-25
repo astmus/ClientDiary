@@ -10,7 +10,7 @@ using System.Windows.Media.Animation;
 
 namespace ClientDiary.ViewModels
 {
-	public class CustomerRecord : INotifyPropertyChanged
+	public class ClientRecord : INotifyPropertyChanged
 	{
 		private string _id;
 		/// <summary>

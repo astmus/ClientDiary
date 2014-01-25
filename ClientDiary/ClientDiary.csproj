@@ -94,10 +94,8 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages.cs" />
+    <Compile Include="DBContext.cs" />
     <Compile Include="LocalizedStrings.cs" />
-    <Compile Include="Pages\ServiceRecordPage.xaml.cs">
-      <DependentUpon>ServiceRecordPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -119,18 +117,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\CustomerRecord.cs" />
-    <Compile Include="ViewModels\ViewModels\CustomersRecordsFlowViewModel.cs" />
+    <Compile Include="ViewModels\BaseModel.cs" />
+    <Compile Include="ViewModels\Client.cs" />
+    <Compile Include="ViewModels\ClientRecord.cs" />
+    <Compile Include="ViewModels\Service.cs" />
+    <Compile Include="ViewModels\ViewModels\ClientsRecordsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Pages\ServiceRecordPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -198,6 +195,9 @@
     <Reference Include="Microsoft.Phone.Controls.Toolkit">
       <HintPath>packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />

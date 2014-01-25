@@ -13,6 +13,17 @@ namespace ClientDiary
 		static Uri _statistic;
 		static Uri _settings;
 
+		public static class Actions
+		{
+			public static string Add = "add";
+			public static string Edit = "edit";
+		}
+
+		public static Uri AddAction(Uri page, string action)
+		{
+			return new Uri(String.Format("{0}?action={1}",page.OriginalString,action),UriKind.Relative);
+		}
+
 		public static Uri Clients
 		{
 			get 
