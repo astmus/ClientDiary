@@ -14,7 +14,6 @@ namespace ClientDiary
 	public partial class App : Application
 	{
 		private static ClientsRecordsViewModel _clientsRecords = null;
-
 		/// <summary>
 		/// A static ViewModel used by the views to bind against.
 		/// </summary>

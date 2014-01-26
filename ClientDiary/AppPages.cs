@@ -15,8 +15,8 @@ namespace ClientDiary
 
 		public static class Actions
 		{
-			public static string Add = "add";
-			public static string Edit = "edit";
+			public const string Add = "add";
+			public const string Edit = "edit";
 		}
 
 		public static Uri AddAction(Uri page, string action)

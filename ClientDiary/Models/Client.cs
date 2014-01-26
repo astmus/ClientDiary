@@ -10,6 +10,17 @@ namespace ClientDiary.ViewModels
 	[Table]
 	public class Client : BaseModel
 	{
+		public Client()
+		{
+
+		}
+
+		public Client(string name, string phoneNumber)
+		{
+			Name = name;
+			PhoneNumber = phoneNumber;
+		}
+
 		[Column(DbType = "INT NOT NULL Identity", IsDbGenerated = true, IsPrimaryKey = true)]
 		public int ClientId { get; private set; }
 

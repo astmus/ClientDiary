@@ -95,6 +95,7 @@
     </Compile>
     <Compile Include="AppPages.cs" />
     <Compile Include="DBContext.cs" />
+    <Compile Include="Extensions\InputScopeExtensions.cs" />
     <Compile Include="LocalizedStrings.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -117,11 +118,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AppResources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\BaseModel.cs" />
-    <Compile Include="ViewModels\Client.cs" />
-    <Compile Include="ViewModels\ClientRecord.cs" />
-    <Compile Include="ViewModels\Service.cs" />
-    <Compile Include="ViewModels\ViewModels\ClientsRecordsViewModel.cs" />
+    <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\ClientRecord.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\ViewModels\BaseViewModel.cs" />
+    <Compile Include="Models\ViewModels\ClientsRecordsViewModel.cs" />
+    <Compile Include="Models\ViewModels\ClientsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -196,9 +199,7 @@
       <HintPath>packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Extensions\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

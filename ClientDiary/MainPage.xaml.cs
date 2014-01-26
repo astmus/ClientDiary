@@ -9,6 +9,10 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClientDiary.Resources;
 using ClientDiary.ViewModels;
+using System.Threading.Tasks;
+using System.Windows.Threading;
+using Microsoft.Phone;
+using Microsoft.Phone.Reactive;
 
 namespace ClientDiary
 {
@@ -43,7 +47,7 @@ namespace ClientDiary
 			if (MainLongListSelector.SelectedItem == null)
 				return;
 			// Navigate to the new page
-			NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ClientRecord).ID, UriKind.Relative));
+			//NavigationService.Navigate(new Uri("/DetailsPage.xaml?selectedItem=" + (MainLongListSelector.SelectedItem as ClientRecord).ID, UriKind.Relative));
 
 			// Reset selected item to null (no selection)
 			MainLongListSelector.SelectedItem = null;
@@ -71,35 +75,37 @@ namespace ClientDiary
 
 		private void AddServiceRecordIconButton_Click(object sender, EventArgs e)
 		{
-			CustomMessageBox message;
-			if (_dbManager.Clients.Count() != 0)
+			CustomMessageBox message = null;
+			if (_dbManager.Clients.Count() == 0)
 			{
 				message = new CustomMessageBox()
 				{
-					Content = "There aren't any clients",
+					Message = "There aren't any clients",
 					LeftButtonContent = "Add new client",
 					RightButtonContent = "Cancel",
 					Tag = AppPages.Clients
 				};
-				message.Dismissed += OnDismissed;
-				message.Show();
-				return;
 			}
-			
+			else
 			if (_dbManager.Services.Count() == 0)
 			{
 				message = new CustomMessageBox()
 				{
-					Content = "There aren't any services",
+					Message = "There aren't any services",
 					LeftButtonContent = "Add new service",
 					RightButtonContent = "Cancel",
 					Tag = AppPages.Services
-				};
+				};				
+			}
+
+			if (message != null)
+			{
 				message.Dismissed += OnDismissed;
 				message.Show();
 				return;
 			}
 
+			// add new client record
 
 		}
 
@@ -109,7 +115,8 @@ namespace ClientDiary
 			if (e.Result == CustomMessageBoxResult.LeftButton)
 			{
 				Uri addClientUri = AppPages.AddAction(box.Tag as Uri,AppPages.Actions.Add);
-				NavigationService.Navigate(addClientUri);	
+				// little spike for correct display CustomMessageBox
+				Scheduler.Dispatcher.Schedule(() => { NavigationService.Navigate(addClientUri); }, TimeSpan.FromMilliseconds(230));	
 			}
 		}
 
