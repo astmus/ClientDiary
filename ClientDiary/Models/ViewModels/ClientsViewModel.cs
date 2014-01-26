@@ -13,7 +13,7 @@ namespace ClientDiary.ViewModels
 		DBManager _dbManager;
 		public ClientsViewModel()
 		{
-			_dbManager = App.DbManager;
+			_dbManager = App.DBManager;
 			Clients = new ObservableCollection<Client>();
 		}
 

@@ -26,7 +26,7 @@ namespace ClientDiary
 
 			// Set the data context of the LongListSelector control to the sample data
 			DataContext = App.WorkFlowDataContext;
-			_dbManager = App.DbManager;
+			_dbManager = App.DBManager;
 			// Sample code to localize the ApplicationBar
 			//BuildLocalizedApplicationBar();
 		}

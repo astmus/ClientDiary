@@ -31,7 +31,7 @@ namespace ClientDiary
 		}
 
 		static DBManager _dbManager;
-		public static DBManager DbManager
+		public static DBManager DBManager
 		{
 			get { return _dbManager ?? (_dbManager = new DBManager()); }
 			set { _dbManager = value; }

@@ -97,8 +97,8 @@ namespace ClientDiary.Pages
 		{
 			Client client = new Client(name, phoneNumber);
 			_viewModel.Clients.Add(client);
-			App.DbManager.Clients.InsertOnSubmit(client);
-			App.DbManager.SubmitChanges();
+			App.DBManager.Clients.InsertOnSubmit(client);
+			App.DBManager.SubmitChanges();
 		}
 
 		void DisplayMessageaboutAddNewClient(string name, string phoneNumber)
@@ -176,6 +176,16 @@ namespace ClientDiary.Pages
 		{
 
 		}
+
+		private void DeleteClient_Click(object sender, RoutedEventArgs e)
+		{
+			Client client = (sender as MenuItem).DataContext as Client;
+			App.DBManager.Clients.DeleteOnSubmit(client);
+			App.DBManager.SubmitChanges();
+			_viewModel.Clients.Remove(client);
+		}
 		#endregion
+
+		
 	}
 }
