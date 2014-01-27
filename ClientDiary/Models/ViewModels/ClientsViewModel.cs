@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientDiary.ViewModels
+namespace ClientDiary.Models.ViewModels
 {
 	class ClientsViewModel : BaseViewModel
 	{
@@ -22,6 +22,20 @@ namespace ClientDiary.ViewModels
 			base.LoadData();
 			_dbManager.Clients.ToList().ForEach(x => { Clients.Add(x); }); ;
 			this.IsDataLoaded = true;
+		}
+
+		public void AddClient(Client client)
+		{
+			Clients.Add(client);
+			_dbManager.Clients.InsertOnSubmit(client);
+			_dbManager.SubmitChanges();
+		}
+
+		public void DeleteClient(Client client)
+		{
+			Clients.Remove(client);
+			_dbManager.Clients.DeleteOnSubmit(client);
+			_dbManager.SubmitChanges();
 		}
 	}
 }

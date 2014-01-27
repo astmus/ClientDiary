@@ -7,7 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClientDiary.Resources;
-using ClientDiary.ViewModels;
+using ClientDiary.Models.ViewModels;
 
 namespace ClientDiary
 {

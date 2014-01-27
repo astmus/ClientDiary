@@ -15,7 +15,8 @@ using Microsoft.Phone.Reactive;
 using System.Windows.Input;
 using ClientDiary.Extensions;
 using Microsoft.Phone.UserData;
-using ClientDiary.ViewModels;
+using ClientDiary.Models.ViewModels;
+using ClientDiary.Models;
 
 namespace ClientDiary.Pages
 {
@@ -68,8 +69,8 @@ namespace ClientDiary.Pages
 				}
 				else
 				{
-					InitTextBox(ref _newClientName, InputScopeNameValue.NameOrPhoneNumber, "Name");
-					InitTextBox(ref _newClientPhone, InputScopeNameValue.TelephoneNumber, "Phone");
+					Utils.InitTextBox(ref _newClientName, "Name");
+					Utils.InitTextBox(ref _newClientPhone, "Phone", InputScopeNameValue.TelephoneNumber);
 
 					StackPanel _content = new StackPanel();
 					_content.Children.Add(_newClientName);
@@ -96,9 +97,7 @@ namespace ClientDiary.Pages
 		void AddNewClient(string name, string phoneNumber)
 		{
 			Client client = new Client(name, phoneNumber);
-			_viewModel.Clients.Add(client);
-			App.DBManager.Clients.InsertOnSubmit(client);
-			App.DBManager.SubmitChanges();
+			_viewModel.AddClient(client);
 		}
 
 		void DisplayMessageaboutAddNewClient(string name, string phoneNumber)
@@ -106,17 +105,6 @@ namespace ClientDiary.Pages
 			addNewClientMeesageBox.Show();
 			_newClientName.Text = name;
 			_newClientPhone.Text = phoneNumber;
-		}
-
-		void InitTextBox(ref PhoneTextBox box, InputScopeNameValue scopeName, string hint)
-		{
-			InputScope scope = new InputScope();
-			scope.SetScopeName(scopeName);
-			box = new PhoneTextBox()
-			{
-				Hint = hint,
-				InputScope = scope
-			};
 		}
 
 		#endregion
@@ -180,9 +168,7 @@ namespace ClientDiary.Pages
 		private void DeleteClient_Click(object sender, RoutedEventArgs e)
 		{
 			Client client = (sender as MenuItem).DataContext as Client;
-			App.DBManager.Clients.DeleteOnSubmit(client);
-			App.DBManager.SubmitChanges();
-			_viewModel.Clients.Remove(client);
+			_viewModel.DeleteClient(client);
 		}
 		#endregion
 

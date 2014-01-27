@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientDiary.ViewModels
+namespace ClientDiary.Models.ViewModels
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{

@@ -8,7 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace ClientDiary.ViewModels
+namespace ClientDiary.Models
 {
 	public class ClientRecord : INotifyPropertyChanged
 	{

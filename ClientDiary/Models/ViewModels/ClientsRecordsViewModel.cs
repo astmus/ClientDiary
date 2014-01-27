@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using ClientDiary.Resources;
 
-namespace ClientDiary.ViewModels
+namespace ClientDiary.Models.ViewModels
 {
 	public class ClientsRecordsViewModel : BaseViewModel
 	{

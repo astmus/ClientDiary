@@ -8,7 +8,6 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using ClientDiary.Resources;
-using ClientDiary.ViewModels;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using Microsoft.Phone;
