@@ -1,6 +1,8 @@
-﻿using System;
+﻿using ClientDiary.DB;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -24,7 +26,9 @@ namespace ClientDiary.Models
 			_price = price;
 		}
 
-		[Column(DbType = "INT NOT NULL Identity", IsDbGenerated = true, IsPrimaryKey = true)]
+        #region Columns
+
+        [Column(DbType = "INT NOT NULL Identity", IsDbGenerated = true, IsPrimaryKey = true)]
 		public int ServiceId { get; private set; }
 
 		// service's name
@@ -67,8 +71,20 @@ namespace ClientDiary.Models
 					NotifyPropertyChanged();
 				}
 			}
-		}
+        }
 
-		
-	}
+        #endregion
+
+        #region Associations
+
+        [Association(OtherKey = "AppointmentServiceId")]
+        public EntitySet<AppointmentService> AppointmentServices
+        {
+            get;
+            private set;
+        }
+
+        #endregion
+
+    }
 }

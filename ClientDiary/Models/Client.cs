@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Linq;
 using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
@@ -21,11 +22,11 @@ namespace ClientDiary.Models
 			PhoneNumber = phoneNumber;
 		}
 
-		[Column(DbType = "INT NOT NULL Identity", IsDbGenerated = true, IsPrimaryKey = true)]
+        #region Columns
+        [Column(DbType = "INT NOT NULL Identity", IsDbGenerated = true, IsPrimaryKey = true)]
 		public int ClientId { get; private set; }
 
 		private string _name;
-
 		[Column]
 		public string Name
 		{
@@ -42,7 +43,6 @@ namespace ClientDiary.Models
 		}
 
 		private string _phoneNumber;
-
 		[Column]
 		public string PhoneNumber
 		{
@@ -56,6 +56,17 @@ namespace ClientDiary.Models
 					NotifyPropertyChanged();
 				}
 			}
-		}
-	}
+        }
+        #endregion
+
+        #region Associations
+        [Association(OtherKey="AppointmentID")]
+        public EntitySet<Appointment> Appointments
+        {
+            get;
+            private set;
+        }
+
+        #endregion
+    }
 }

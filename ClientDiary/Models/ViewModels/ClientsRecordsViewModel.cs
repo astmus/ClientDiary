@@ -9,13 +9,13 @@ namespace ClientDiary.Models.ViewModels
 	{
 		public ClientsRecordsViewModel()
 		{
-			this.Records = new ObservableCollection<ClientRecord>();
+			this.Records = new ObservableCollection<Appointment>();
 		}
 
 		/// <summary>
 		/// A collection for ClientsRecords objects.
 		/// </summary>
-		public ObservableCollection<ClientRecord> Records { get; private set; }
+		public ObservableCollection<Appointment> Records { get; private set; }
 
 		/// <summary>
 		/// Load data for view
@@ -23,8 +23,8 @@ namespace ClientDiary.Models.ViewModels
 		public override void LoadData()
 		{
 			// Sample data; replace with real data
-			this.Records.Add(new ClientRecord() { ID = "0", Name = "client1", Services = "service procedure 1" });
-			this.Records.Add(new ClientRecord() { ID = "1", Name = "client2", Services = "service procedure 2" });
+			//this.Records.Add(new Appointment() { ID = "0", Name = "client1", Services = "service procedure 1" });
+			//this.Records.Add(new Appointment() { ID = "1", Name = "client2", Services = "service procedure 2" });
 
 			this.IsDataLoaded = true;
 		}

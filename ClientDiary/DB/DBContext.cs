@@ -18,6 +18,10 @@ namespace ClientDiary
 		{
 			if (this.DatabaseExists() == false)
 				this.CreateDatabase();
+            DataLoadOptions dlo = new DataLoadOptions();
+            dlo.LoadWith<Client>(client => client.Appointments);
+            dlo.LoadWith<Appointment>(appointment => appointment.AppointmentServices);
+            this.LoadOptions = dlo;
 		}
 
 		#region DataSource properties

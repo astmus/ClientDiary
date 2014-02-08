@@ -94,6 +94,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="AppPages.cs" />
+    <Compile Include="DB\AppointmentService.cs" />
     <Compile Include="DB\DBContext.cs" />
     <Compile Include="Extensions\InputScopeExtensions.cs" />
     <Compile Include="LocalizedStrings.cs" />
@@ -121,7 +122,7 @@
     </Compile>
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\Client.cs" />
-    <Compile Include="Models\ClientRecord.cs" />
+    <Compile Include="Models\Appointment.cs" />
     <Compile Include="Models\Service.cs" />
     <Compile Include="Models\ViewModels\BaseViewModel.cs" />
     <Compile Include="Models\ViewModels\ClientsRecordsViewModel.cs" />
