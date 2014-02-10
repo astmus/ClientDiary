@@ -8,65 +8,107 @@ using System.Threading.Tasks;
 
 namespace ClientDiary.Models
 {
-	[Table]
-	public class Client : BaseModel
-	{
-		public Client()
-		{
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "")]
+    public partial class Client : BaseModel
+    {
+        private string _Name;
 
-		}
+        private string _Phone;
 
-		public Client(string name, string phoneNumber)
-		{
-			Name = name;
-			PhoneNumber = phoneNumber;
-		}
+        private int _ClientId;
 
-        #region Columns
-        [Column(DbType = "INT NOT NULL Identity", IsDbGenerated = true, IsPrimaryKey = true)]
-		public int ClientId { get; private set; }
+        private EntitySet<Appointment> _Appointments;
 
-		private string _name;
-		[Column]
-		public string Name
-		{
-			get { return _name; }
-			set
-			{
-				if (_name != value)
-				{
-					NotifyPropertyChanging();
-					_name = value;
-					NotifyPropertyChanged();
-				}
-			}
-		}
-
-		private string _phoneNumber;
-		[Column]
-		public string PhoneNumber
-		{
-			get { return _phoneNumber; }
-			set
-			{
-				if (_phoneNumber != value)
-				{
-					NotifyPropertyChanging();
-					_phoneNumber = value;
-					NotifyPropertyChanged();
-				}
-			}
+        public Client()
+        {
+            this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.addAppointments), new Action<Appointment>(this.deleteAppointments));
         }
-        #endregion
 
-        #region Associations
-        [Association(OtherKey="AppointmentID")]
+        public Client(string name, string phone)
+        {
+            this._Appointments = new EntitySet<Appointment>(new Action<Appointment>(this.addAppointments), new Action<Appointment>(this.deleteAppointments));
+            Name = name;
+            Phone = phone;
+        }
+
+        [Column(Storage = "_Name", CanBeNull = false)]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                if ((this._Name != value))
+                {
+                    NotifyPropertyChanging();
+                    this._Name = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        [Column(Storage = "_Phone", CanBeNull = false)]
+        public string Phone
+        {
+            get
+            {
+                return this._Phone;
+            }
+            set
+            {
+                if ((this._Phone != value))
+                {
+                    NotifyPropertyChanging();
+                    this._Phone = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        [Column(Storage = "_ClientId", AutoSync = AutoSync.OnInsert, IsPrimaryKey = true, IsDbGenerated = true)]
+        public int ClientId
+        {
+            get
+            {
+                return this._ClientId;
+            }
+            set
+            {
+                if ((this._ClientId != value))
+                {
+                    NotifyPropertyChanging();
+                    this._ClientId = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Client_Appointment", Storage = "_Appointments", ThisKey = "ClientId", OtherKey = "ClientId")]
         public EntitySet<Appointment> Appointments
         {
-            get;
-            private set;
+            get
+            {
+                return this._Appointments;
+            }
+            set
+            {
+                this._Appointments.Assign(value);
+            }
         }
 
-        #endregion
+        private void addAppointments(Appointment entity)
+        {
+            NotifyPropertyChanging();
+            entity.Client = this;
+        }
+
+        private void deleteAppointments(Appointment entity)
+        {
+            NotifyPropertyChanging();
+            entity.Client = null;
+        }
     }
+
 }

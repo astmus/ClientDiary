@@ -12,79 +12,107 @@ using System.Threading.Tasks;
 // store data about one concrete service
 namespace ClientDiary.Models
 {
-	[Table]
-	public class Service : BaseModel
-	{
-		public Service()
-		{
+    [Table]
+    public partial class Service : BaseModel
+    {
+        private string _Name;
 
-		}
+        private float _Price;
 
-		public Service(string name, double price)
-		{
-			_name = name;
-			_price = price;
-		}
+        private int _ServiceId;
 
-        #region Columns
+        private EntitySet<AppointmentService> _AppointmentServices;
 
-        [Column(DbType = "INT NOT NULL Identity", IsDbGenerated = true, IsPrimaryKey = true)]
-		public int ServiceId { get; private set; }
-
-		// service's name
-		private string _name;
-
-		[Column]
-		public string Name
-		{
-			get
-			{
-				return _name;
-			}
-			set
-			{
-				if (_name != value)
-				{
-					NotifyPropertyChanging();
-					_name = value;
-					NotifyPropertyChanged();
-				}
-			}
-		}
-
-		//service's price
-		private double _price;
-
-		[Column]
-		public double Price
-		{
-			get
-			{
-				return _price;
-			}
-			set
-			{
-				if (_price != value)
-				{
-					NotifyPropertyChanging();
-					_price = value;
-					NotifyPropertyChanged();
-				}
-			}
+        public Service()
+        {
+            this._AppointmentServices = new EntitySet<AppointmentService>(new Action<AppointmentService>(this.attach_AppointmentServices), new Action<AppointmentService>(this.detach_AppointmentServices));
         }
 
-        #endregion
+        public Service(string name, float price)
+        {
+            this._AppointmentServices = new EntitySet<AppointmentService>(new Action<AppointmentService>(this.attach_AppointmentServices), new Action<AppointmentService>(this.detach_AppointmentServices));
+            Name = name;
+            Price = price;
+        }
 
-        #region Associations
+        [Column(Storage = "_Name", CanBeNull = false)]
+        public string Name
+        {
+            get
+            {
+                return this._Name;
+            }
+            set
+            {
+                if ((this._Name != value))
+                {
+                    NotifyPropertyChanging();
+                    this._Name = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
 
-        [Association(OtherKey = "AppointmentServiceId")]
+        [Column(Storage = "_Price")]
+        public float Price
+        {
+            get
+            {
+                return this._Price;
+            }
+            set
+            {
+                if ((this._Price != value))
+                {
+                    NotifyPropertyChanging();
+                    this._Price = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        [Column(Storage = "_ServiceId", AutoSync = AutoSync.OnInsert, IsPrimaryKey = true, IsDbGenerated = true)]
+        public int ServiceId
+        {
+            get
+            {
+                return this._ServiceId;
+            }
+            set
+            {
+                if ((this._ServiceId != value))
+                {
+                    NotifyPropertyChanging();
+                    this._ServiceId = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Service_AppointmentService", Storage = "_AppointmentServices", ThisKey = "ServiceId", OtherKey = "ServiceId")]
         public EntitySet<AppointmentService> AppointmentServices
         {
-            get;
-            private set;
+            get
+            {
+                return this._AppointmentServices;
+            }
+            set
+            {
+                this._AppointmentServices.Assign(value);
+            }
         }
 
-        #endregion
+        private void attach_AppointmentServices(AppointmentService entity)
+        {
+            NotifyPropertyChanging();
+            entity.Service = this;
+        }
 
+        private void detach_AppointmentServices(AppointmentService entity)
+        {
+            NotifyPropertyChanged();
+            entity.Service = null;
+        }
     }
+
 }

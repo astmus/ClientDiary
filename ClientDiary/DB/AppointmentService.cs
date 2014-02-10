@@ -10,73 +10,156 @@ using System.Threading.Tasks;
 namespace ClientDiary.DB
 {
     // represent table for create many-to-many associations
-    [Table]
-    public class AppointmentService
+    [global::System.Data.Linq.Mapping.TableAttribute(Name = "")]
+    public partial class AppointmentService : BaseModel
     {
+        private int _AppointmentServiceId;
 
-        #region Columns
-        [Column(DbType = "INT NOT NULL Identity", IsDbGenerated = true, IsPrimaryKey = true)]
+        private int _AppointmentId;
+
+        private int _ServiceId;
+
+        private EntityRef<Appointment> _Appointment;
+
+        private EntityRef<Service> _Service;
+
+
+
+        public AppointmentService()
+        {
+            this._Appointment = default(EntityRef<Appointment>);
+            this._Service = default(EntityRef<Service>);
+        }
+
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AppointmentServiceId", AutoSync = AutoSync.OnInsert, IsPrimaryKey = true, IsDbGenerated = true)]
         public int AppointmentServiceId
         {
-            get;
-            private set;
-        }
-
-        [Column]
-        private int _appointmentId;
-
-        [Column]
-        private int _serviceId;
-        #endregion
-
-        #region Associations
-        
-        private EntityRef<Appointment> _appointment;
-
-        [Association(Storage = "_appointment", IsForeignKey = true, ThisKey = "_appointmentId")]
-        public Appointment appointment
-        {
             get
             {
-                return _appointment.Entity;
+                return this._AppointmentServiceId;
             }
             set
             {
-                _appointment.Entity = value;
-                _appointmentId = value.AppointmentID;
+                if ((this._AppointmentServiceId != value))
+                {
+                    NotifyPropertyChanging();
+                    this._AppointmentServiceId = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
 
-        private EntityRef<Service> _service;
-
-        [Association(Storage = "_service", IsForeignKey = true, ThisKey = "_serviceId")]
-        public Service service
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_AppointmentId")]
+        public int AppointmentId
         {
             get
             {
-                return _service.Entity;
+                return this._AppointmentId;
             }
             set
             {
-                _service.Entity = value;
-                _serviceId = value.ServiceId;
+                if ((this._AppointmentId != value))
+                {
+                    if (this._Appointment.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    NotifyPropertyChanging();
+                    this._AppointmentId = value;
+                    NotifyPropertyChanged();
+                }
             }
         }
 
-        [Association(OtherKey = "ServiceId")]
-        public EntitySet<Service> Services
+        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_ServiceId")]
+        public int ServiceId
         {
-            get;
-            private set;
+            get
+            {
+                return this._ServiceId;
+            }
+            set
+            {
+                if ((this._ServiceId != value))
+                {
+                    if (this._Service.HasLoadedOrAssignedValue)
+                    {
+                        throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+                    }
+                    NotifyPropertyChanging();
+                    this._ServiceId = value;
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
-        [Association(OtherKey = "AppointmentID")]
-        public EntitySet<Appointment> Appointments
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Appointment_AppointmentService", Storage = "_Appointment", ThisKey = "AppointmentId", OtherKey = "AppointmentId", IsForeignKey = true)]
+        public Appointment Appointment
         {
-            get;
-            private set;
+            get
+            {
+                return this._Appointment.Entity;
+            }
+            set
+            {
+                Appointment previousValue = this._Appointment.Entity;
+                if (((previousValue != value)
+                            || (this._Appointment.HasLoadedOrAssignedValue == false)))
+                {
+                    NotifyPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Appointment.Entity = null;
+                        previousValue.AppointmentServices.Remove(this);
+                    }
+                    this._Appointment.Entity = value;
+                    if ((value != null))
+                    {
+                        value.AppointmentServices.Add(this);
+                        this._AppointmentId = value.AppointmentId;
+                    }
+                    else
+                    {
+                        this._AppointmentId = default(int);
+                    }
+                    NotifyPropertyChanged();
+                }
+            }
         }
 
-        #endregion
+        [global::System.Data.Linq.Mapping.AssociationAttribute(Name = "Service_AppointmentService", Storage = "_Service", ThisKey = "ServiceId", OtherKey = "ServiceId", IsForeignKey = true)]
+        public Service Service
+        {
+            get
+            {
+                return this._Service.Entity;
+            }
+            set
+            {
+                Service previousValue = this._Service.Entity;
+                if (((previousValue != value)
+                            || (this._Service.HasLoadedOrAssignedValue == false)))
+                {
+                    NotifyPropertyChanging();
+                    if ((previousValue != null))
+                    {
+                        this._Service.Entity = null;
+                        previousValue.AppointmentServices.Remove(this);
+                    }
+                    this._Service.Entity = value;
+                    if ((value != null))
+                    {
+                        value.AppointmentServices.Add(this);
+                        this._ServiceId = value.ServiceId;
+                    }
+                    else
+                    {
+                        this._ServiceId = default(int);
+                    }
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
     }
 }

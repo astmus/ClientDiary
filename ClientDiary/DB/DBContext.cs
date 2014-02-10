@@ -1,41 +1,54 @@
-﻿using ClientDiary.Models;
+﻿using ClientDiary.DB;
+using ClientDiary.Models;
 using System;
 using System.Collections.Generic;
 using System.Data.Linq;
+using System.Data.Linq.Mapping;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ClientDiary
 {
-	public class DBManager : DataContext
-	{
-		public Table<Service> Services;
-		public Table<Client> Clients;
+    public partial class DBManager : DataContext
+    {
+        public DBManager(string connection = "Data source=isostore:/diary.sdf") :
+            base(connection)
+        {
+            if (this.DatabaseExists() == false)
+                this.CreateDatabase();
+        }
 
-		public DBManager(string connectionString = "Data source=isostore:/diary.sdf")
-			: base(connectionString)
-		{
-			if (this.DatabaseExists() == false)
-				this.CreateDatabase();
-            DataLoadOptions dlo = new DataLoadOptions();
-            dlo.LoadWith<Client>(client => client.Appointments);
-            dlo.LoadWith<Appointment>(appointment => appointment.AppointmentServices);
-            this.LoadOptions = dlo;
-		}
+        public System.Data.Linq.Table<Client> Clients
+        {
+            get
+            {
+                return this.GetTable<Client>();
+            }
+        }
 
-		#region DataSource properties
+        public System.Data.Linq.Table<Service> Services
+        {
+            get
+            {
+                return this.GetTable<Service>();
+            }
+        }
 
-		public Table<Client> ClientsSource
-		{
-			get { return Clients; }
-		}
+        public System.Data.Linq.Table<Appointment> Appointments
+        {
+            get
+            {
+                return this.GetTable<Appointment>();
+            }
+        }
 
-		public Table<Service> ServicesSource
-		{
-			get { return Services; }
-		}
-
-		#endregion
-	}
+        public System.Data.Linq.Table<AppointmentService> AppointmentServices
+        {
+            get
+            {
+                return this.GetTable<AppointmentService>();
+            }
+        }
+    }
 }

@@ -84,7 +84,6 @@ namespace ClientDiary.Pages
 						RightButtonContent = "Cancel",
 						Content = _content
 					};
-
 					_addClientBox.Dismissed += NewClientInfoEntered;
 					return _addClientBox;
 				}
@@ -121,7 +120,7 @@ namespace ClientDiary.Pages
 				{
 					LeftButtonContent = "From contacts",
 					RightButtonContent = "By hand",
-					Message = "How to add a new customer?"
+					Message = "How to add a new client?"
 				};
 				_offerAddClientBox.Dismissed += OnDismissed;
 			}
@@ -172,6 +171,5 @@ namespace ClientDiary.Pages
 		}
 		#endregion
 
-		
 	}
 }

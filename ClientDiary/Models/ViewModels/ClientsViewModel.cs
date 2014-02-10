@@ -20,7 +20,8 @@ namespace ClientDiary.Models.ViewModels
 		public override void LoadData()
 		{
 			base.LoadData();
-			_dbManager.Clients.ToList().ForEach(x => { Clients.Add(x); }); ;
+            int cou = _dbManager.Clients.Count();
+            _dbManager.Clients.ToList().ForEach(x => { Clients.Add(x); });
 			this.IsDataLoaded = true;
 		}
 

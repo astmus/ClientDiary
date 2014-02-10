@@ -81,7 +81,7 @@ namespace ClientDiary.Pages
 			if (_serviceName.Text == "") return;
 			if (_servicePrice.Text == "") return;
 
-			double price = Double.Parse(_servicePrice.Text);
+			float price = float.Parse(_servicePrice.Text);
 			Service s = new Service(_serviceName.Text, price);
 			_viewModel.AddService(s);
 		}
