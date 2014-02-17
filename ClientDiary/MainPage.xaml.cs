@@ -12,6 +12,9 @@ using System.Threading.Tasks;
 using System.Windows.Threading;
 using Microsoft.Phone;
 using Microsoft.Phone.Reactive;
+using ClientDiary.Controls;
+using System.Windows.Media;
+
 
 namespace ClientDiary
 {
@@ -96,6 +99,12 @@ namespace ClientDiary
 					Tag = AppPages.Services
 				};				
 			}
+            else
+            {
+                var v = new NewAppointmentBox();
+                v.Show();
+                v.Dismissed += v_Dismissed;
+            }
 
 			if (message != null)
 			{
@@ -104,9 +113,27 @@ namespace ClientDiary
 				return;
 			}
 
-			// add new client record
 
+
+			// add new client record
+            
 		}
+
+        void v_Dismissed(object sender, NewAppointmentBoxDismissRes e)
+        {
+            switch (e)
+            {
+                case NewAppointmentBoxDismissRes.Added:
+                    
+                    break;
+                case NewAppointmentBoxDismissRes.Canceled:
+                    break;
+            }
+        }
+
+        
+
+       
 
 		void OnDismissed(object sender, DismissedEventArgs e)
 		{
@@ -114,7 +141,7 @@ namespace ClientDiary
 			if (e.Result == CustomMessageBoxResult.LeftButton)
 			{
 				Uri addClientUri = AppPages.AddAction(box.Tag as Uri,AppPages.Actions.Add);
-				// little spike for correct display CustomMessageBox
+				//little spike for correct display CustomMessageBox
 				Scheduler.Dispatcher.Schedule(() => { NavigationService.Navigate(addClientUri); }, TimeSpan.FromMilliseconds(230));	
 			}
 		}
