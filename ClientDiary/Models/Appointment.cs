@@ -32,6 +32,12 @@ namespace ClientDiary.Models
             this._Client = default(EntityRef<Client>);
         }
 
+		/*public Appointment(int clientId, )
+		{
+			this._AppointmentServices = new EntitySet<AppointmentService>(new Action<AppointmentService>(this.addAppointmentServices), new Action<AppointmentService>(this.deleteAppointmentServices));
+			this._Client = default(EntityRef<Client>);
+		}*/
+
         [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DueDate")]
         public System.DateTime DueDate
         {

@@ -14,6 +14,7 @@ using Microsoft.Phone;
 using Microsoft.Phone.Reactive;
 using ClientDiary.Controls;
 using System.Windows.Media;
+using ClientDiary.Models;
 
 
 namespace ClientDiary
@@ -119,14 +120,18 @@ namespace ClientDiary
             
 		}
 
-        void v_Dismissed(object sender, NewAppointmentBoxDismissRes e)
+        void v_Dismissed(object sender, NewAppointentBoxResult e)
         {
-            switch (e)
+            switch (e.ActionResult)
             {
-                case NewAppointmentBoxDismissRes.Added:
-                    
+                case NewAppointmentBoxActionResult.Added:
+					Appointment app = new Appointment();
+					app.DueDate = DateTime.Now;
+					app.Client = e.SelectedClient;
+					App.DBManager.Appointments.InsertOnSubmit(app);
+					App.DBManager.SubmitChanges();
                     break;
-                case NewAppointmentBoxDismissRes.Canceled:
+                case NewAppointmentBoxActionResult.Canceled:
                     break;
             }
         }

@@ -14,20 +14,45 @@ using System.Collections;
 
 namespace ClientDiary.Controls
 {
-    public enum NewAppointmentBoxDismissRes
+    public enum NewAppointmentBoxActionResult
     {
         Added,
         Canceled
     }
+
+	public class NewAppointentBoxResult : EventArgs
+	{
+		Client _selectedClient;
+
+		public Client SelectedClient
+		{
+			get { return _selectedClient; }
+			set { _selectedClient = value; }
+		}
+		List<Service> _selectedService;
+
+		public List<Service> SelectedServices
+		{
+			get { return _selectedService; }
+			set { _selectedService = value; }
+		}
+		NewAppointmentBoxActionResult _result;
+
+		public NewAppointmentBoxActionResult ActionResult
+		{
+			get { return _result; }
+			set { _result = value; }
+		}
+	}
 
     public partial class NewAppointmentBox : UserControl
     {
         PhoneApplicationFrame _frame;
         PhoneApplicationPage _page;
         Color _systemTrayColor;
-        
+		NewAppointentBoxResult _result;
         #region events
-        public event EventHandler<NewAppointmentBoxDismissRes> Dismissed;
+		public event EventHandler<NewAppointentBoxResult> Dismissed;
         #endregion
 
         #region properties
@@ -50,6 +75,7 @@ namespace ClientDiary.Controls
 			servicesPicker.SummaryForSelectedItemsDelegate = Summarize;
 			clientPicker.ItemsSource = App.DBManager.Clients;
 			servicesPicker.ItemsSource = App.DBManager.Services;
+			_result = new NewAppointentBoxResult();
         }
 
         public void Show()
@@ -71,10 +97,15 @@ namespace ClientDiary.Controls
 			return string.Join(", ", names);
 		}
 
-        void RiseDissmisEvent(NewAppointmentBoxDismissRes result)
+		void RiseDissmisEvent(NewAppointmentBoxActionResult actionResult)
         {
+			if (clientPicker.SelectedItem != null)
+				_result.SelectedClient = clientPicker.SelectedItem as Client;
+			if (servicesPicker.SelectedItems != null)
+				_result.SelectedServices = servicesPicker.SelectedItems.Cast<Service>().ToList();
+			_result.ActionResult = actionResult;
             if (Dismissed != null)
-                Dismissed(this, result);
+                Dismissed(this, _result);
         }
 
         void CloseBox()
@@ -91,19 +122,19 @@ namespace ClientDiary.Controls
         {
             CloseBox();
             e.Cancel = true;
-            RiseDissmisEvent(NewAppointmentBoxDismissRes.Canceled);
+            RiseDissmisEvent(NewAppointmentBoxActionResult.Canceled);
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             CloseBox();
-            RiseDissmisEvent(NewAppointmentBoxDismissRes.Added);
+            RiseDissmisEvent(NewAppointmentBoxActionResult.Added);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             CloseBox();
-            RiseDissmisEvent(NewAppointmentBoxDismissRes.Canceled);
+            RiseDissmisEvent(NewAppointmentBoxActionResult.Canceled);
         }
 
         
