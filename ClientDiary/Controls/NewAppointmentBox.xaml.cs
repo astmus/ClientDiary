@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using ClientDiary.Models;
+using System.Collections;
 
 namespace ClientDiary.Controls
 {
@@ -24,28 +25,31 @@ namespace ClientDiary.Controls
         PhoneApplicationFrame _frame;
         PhoneApplicationPage _page;
         Color _systemTrayColor;
-
+        
         #region events
         public event EventHandler<NewAppointmentBoxDismissRes> Dismissed;
         #endregion
 
         #region properties
-        public List<Client> Clients
-        {
-            get;
-            set;
-        }
+		//public List<Client> Clients
+		//{
+		//	get;
+		//	set;
+		//}
 
-        public List<Service> Services
-        {
-            get;
-            set;
-        }
+		//public List<Service> Services
+		//{
+		//	get;
+		//	set;
+		//}
         #endregion
 
         public NewAppointmentBox()
         {
-            InitializeComponent();
+            InitializeComponent();			
+			servicesPicker.SummaryForSelectedItemsDelegate = Summarize;
+			clientPicker.ItemsSource = App.DBManager.Clients;
+			servicesPicker.ItemsSource = App.DBManager.Services;
         }
 
         public void Show()
@@ -59,6 +63,13 @@ namespace ClientDiary.Controls
         }
 
         #region private methods
+
+		private string Summarize(IList items)
+		{
+			if (items == null) return "select services";
+			string [] names = items.Cast<Service>().Select(x => x.Name).ToArray();
+			return string.Join(", ", names);
+		}
 
         void RiseDissmisEvent(NewAppointmentBoxDismissRes result)
         {

@@ -10,13 +10,71 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     d:DesignHeight="480" d:DesignWidth="480">
-    
+    <UserControl.Resources>
+        <Style TargetType="toolkit:ListPickerItem">
+            <Setter Property="Padding" Value="-4 -5 0 10"/>
+        </Style>
+        <Style TargetType="toolkit:ListPicker">
+            <Setter Property="Template" >
+                <Setter.Value>
+                    <ControlTemplate TargetType="toolkit:ListPicker">
+                        <StackPanel>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="PickerStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="Highlighted">
+                                        <Storyboard>
+
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
+                                                <DiscreteObjectKeyFrame Value="{StaticResource PhoneSubtleBrush}" KeyTime="0"/>
+                                            </ObjectAnimationUsingKeyFrames>
+
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled"/>
+
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentControl
+							Content="{TemplateBinding Header}"
+							ContentTemplate="{TemplateBinding HeaderTemplate}"
+							Foreground="{StaticResource PhoneSubtleBrush}"
+							FontSize="{StaticResource PhoneFontSizeNormal}"
+							HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+							Margin="0 0 0 8"/>
+                            <Grid>
+                                <Border x:Name="Border"                        
+                                 Background="{TemplateBinding Background}"
+                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                 BorderThickness="{TemplateBinding BorderThickness}">
+                                    <UserControl x:Name="UserControl" Foreground="{TemplateBinding Foreground}">
+                                        <StackPanel>
+                                            <TextBlock x:Name="MultipleSelectionModeSummary" Margin="8 8 0 8" />
+                                            <Canvas x:Name="ItemsPresenterHost" MinHeight="46">
+                                                <ItemsPresenter x:Name="ItemsPresenter">
+                                                    <ItemsPresenter.RenderTransform>
+                                                        <TranslateTransform x:Name="ItemsPresenterTranslateTransform"/>
+                                                    </ItemsPresenter.RenderTransform>
+                                                </ItemsPresenter>
+                                            </Canvas>
+                                        </StackPanel>
+                                    </UserControl>
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+
     <StackPanel x:Name="LayoutRoot" Background="{StaticResource PhoneChromeBrush}">
-        <TextBlock Text="Client"/>
-        <toolkit:ListPicker BorderThickness="0" Foreground="Red"  ExpansionMode="FullScreenOnly">
-            <toolkit:ListPicker.Items>
-                <data:Client  Name="client" Phone="phone"/>
-            </toolkit:ListPicker.Items>
+        <TextBlock Padding="12,0,0,0" Text="Client"/>
+		<toolkit:ListPicker x:Name="clientPicker" FullModeHeader="select client"  BorderThickness="0" ExpansionMode="FullScreenOnly">
+            <!--<toolkit:ListPicker.Items>
+                <data:Client  Name="client" Phone="phone"/>                
+            </toolkit:ListPicker.Items>-->
             <toolkit:ListPicker.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -27,14 +85,32 @@
             </toolkit:ListPicker.ItemTemplate>
             <toolkit:ListPicker.FullModeItemTemplate>
                 <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding}"/>
+                    <StackPanel Orientation="Vertical">
+                        <TextBlock Text="{Binding Name}" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+                        <TextBlock Text="{Binding Phone}" FontSize="{StaticResource PhoneFontSizeSmall}" Opacity="0.7"/>
                     </StackPanel>
                 </DataTemplate>
             </toolkit:ListPicker.FullModeItemTemplate>
         </toolkit:ListPicker>
-        <TextBlock Text="Services"/>
-        <toolkit:ListPicker ExpansionMode="FullScreenOnly" SelectionMode="Multiple"></toolkit:ListPicker>
+
+		<TextBlock Padding="12,0,0,0" Text="Services"/>
+		<toolkit:ListPicker x:Name="servicesPicker" FullModeHeader="select services" BorderThickness="0" SelectionMode="Multiple" ExpansionMode="FullScreenOnly" >
+			<toolkit:ListPicker.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock Text="{Binding}" FontSize="80" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>						
+					</StackPanel>
+				</DataTemplate>
+			</toolkit:ListPicker.ItemTemplate>
+			<toolkit:ListPicker.FullModeItemTemplate>
+				<DataTemplate>
+					<StackPanel Orientation="Vertical">
+						<TextBlock Text="{Binding Name}" FontSize="{StaticResource PhoneFontSizeLarge}"/>
+						<TextBlock Text="{Binding Price,StringFormat=N2}" FontSize="{StaticResource PhoneFontSizeSmall}" Opacity="0.7"/>
+					</StackPanel>
+				</DataTemplate>
+			</toolkit:ListPicker.FullModeItemTemplate>
+		</toolkit:ListPicker>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>

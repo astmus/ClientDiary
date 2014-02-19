@@ -35,6 +35,11 @@ namespace ClientDiary.Models
             Price = price;
         }
 
+		public override string ToString()
+		{
+			return _Name;
+		}
+
         [Column(Storage = "_Name", CanBeNull = false)]
         public string Name
         {
