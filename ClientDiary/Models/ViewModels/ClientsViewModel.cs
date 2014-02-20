@@ -20,7 +20,6 @@ namespace ClientDiary.Models.ViewModels
 		public override void LoadData()
 		{
 			base.LoadData();
-            int cou = _dbManager.Clients.Count();
             _dbManager.Clients.ToList().ForEach(x => { Clients.Add(x); });
 			this.IsDataLoaded = true;
 		}
@@ -36,6 +35,10 @@ namespace ClientDiary.Models.ViewModels
 		{
 			Clients.Remove(client);
 			_dbManager.Clients.DeleteOnSubmit(client);
+			var relatedAppointments = _dbManager.Appointments.Where(ap => ap.Client.ClientId == client.ClientId);
+			_dbManager.Appointments.DeleteAllOnSubmit(relatedAppointments);
+			var relatedAppointmentService = _dbManager.AppointmentServices.Where(aser => aser.Appointment.Client.ClientId == client.ClientId);
+			_dbManager.AppointmentServices.DeleteAllOnSubmit(relatedAppointmentService);
 			_dbManager.SubmitChanges();
 		}
 	}

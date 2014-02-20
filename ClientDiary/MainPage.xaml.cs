@@ -15,6 +15,7 @@ using Microsoft.Phone.Reactive;
 using ClientDiary.Controls;
 using System.Windows.Media;
 using ClientDiary.Models;
+using ClientDiary.Models.ViewModels;
 
 
 namespace ClientDiary
@@ -22,13 +23,16 @@ namespace ClientDiary
 	public partial class MainPage : PhoneApplicationPage
 	{
 		DBManager _dbManager;
+		private static AppointmentsViewModel _clientsRecords = null;
+		
 		// Constructor
 		public MainPage()
 		{
 			InitializeComponent();
 
 			// Set the data context of the LongListSelector control to the sample data
-			DataContext = App.WorkFlowDataContext;
+			_clientsRecords = new AppointmentsViewModel();
+			DataContext = _clientsRecords;
 			_dbManager = App.DBManager;
 			// Sample code to localize the ApplicationBar
 			//BuildLocalizedApplicationBar();
@@ -37,10 +41,8 @@ namespace ClientDiary
 		// Load data for the ViewModel Items
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
-			if (!App.WorkFlowDataContext.IsDataLoaded)
-			{
-				App.WorkFlowDataContext.LoadData();
-			}
+			if (!_clientsRecords.IsDataLoaded)
+				_clientsRecords.LoadData();
 		}
 
 		// Handle selection changed on LongListSelector
@@ -114,10 +116,6 @@ namespace ClientDiary
 				return;
 			}
 
-
-
-			// add new client record
-            
 		}
 
         void v_Dismissed(object sender, NewAppointentBoxResult e)
@@ -128,17 +126,13 @@ namespace ClientDiary
 					Appointment app = new Appointment();
 					app.DueDate = DateTime.Now;
 					app.Client = e.SelectedClient;
-					App.DBManager.Appointments.InsertOnSubmit(app);
-					App.DBManager.SubmitChanges();
+					app.AddServices(e.SelectedServices);
+					_clientsRecords.AddAppointment(app);
                     break;
                 case NewAppointmentBoxActionResult.Canceled:
                     break;
             }
         }
-
-        
-
-       
 
 		void OnDismissed(object sender, DismissedEventArgs e)
 		{

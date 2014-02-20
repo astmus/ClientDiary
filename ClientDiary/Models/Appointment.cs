@@ -1,7 +1,9 @@
 ﻿using ClientDiary.DB;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Linq;
+using System.Linq;
 using System.Data.Linq.Mapping;
 using System.Diagnostics;
 using System.Net;
@@ -18,7 +20,7 @@ namespace ClientDiary.Models
     {
         private System.DateTime _DueDate;
 
-        private int _AppointmentId;
+        private int _AppointmentId = -1;
 
         private System.Data.Linq.Link<int> _ClientId;
 
@@ -26,19 +28,61 @@ namespace ClientDiary.Models
 
         private EntityRef<Client> _Client;
 
-        public Appointment()
+		#region constructors
+		public Appointment()
         {
-            this._AppointmentServices = new EntitySet<AppointmentService>(new Action<AppointmentService>(this.addAppointmentServices), new Action<AppointmentService>(this.deleteAppointmentServices));
+            this._AppointmentServices = new EntitySet<AppointmentService>(new Action<AppointmentService>(this.AddAppointmentService), new Action<AppointmentService>(this.DeleteAppointmentService));
             this._Client = default(EntityRef<Client>);
         }
 
-		/*public Appointment(int clientId, )
+		public Appointment(Client client, List<Service> services, DateTime dueDate)
 		{
-			this._AppointmentServices = new EntitySet<AppointmentService>(new Action<AppointmentService>(this.addAppointmentServices), new Action<AppointmentService>(this.deleteAppointmentServices));
-			this._Client = default(EntityRef<Client>);
-		}*/
+			this._AppointmentServices = new EntitySet<AppointmentService>(new Action<AppointmentService>(this.AddAppointmentService), new Action<AppointmentService>(this.DeleteAppointmentService));
+			Client = client;
+			AddServices(services);
+			DueDate = dueDate;
+		}
+		#endregion
 
-        [global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DueDate")]
+		#region properties
+
+		public List<Service> Services
+		{
+			get
+			{
+				if (AppointmentId == -1) return null;
+				List<Service> res = App.DBManager.Services.Where(s => App.DBManager.AppointmentServices.Where(a => a.AppointmentId == AppointmentId).Select(ap => ap.ServiceId).Contains(s.ServiceId)).ToList();
+				return res;
+			}
+		}
+
+		public String ServicesList
+		{
+			get 
+			{
+				return string.Join(", ", Services.Select(s => s.Name).ToArray());
+			}
+		}
+
+		#endregion
+
+		#region public methods
+
+		public void AddServices(List<Service> services)
+		{
+			foreach (Service serv in services)
+			{
+				AppointmentService s = new AppointmentService();
+				s.Service = serv;
+				AddAppointmentService(s);
+			}
+		}
+
+		#endregion
+
+		#region table data
+
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage = "_DueDate")]
         public System.DateTime DueDate
         {
             get
@@ -143,16 +187,20 @@ namespace ClientDiary.Models
             }
         }
 
-        private void addAppointmentServices(AppointmentService entity)
+		#endregion
+
+		#region private methods
+		private void AddAppointmentService(AppointmentService entity)
         {
             NotifyPropertyChanging();
             entity.Appointment = this;
         }
 
-        private void deleteAppointmentServices(AppointmentService entity)
+        private void DeleteAppointmentService(AppointmentService entity)
         {
-            NotifyPropertyChanging();
+            NotifyPropertyChanging(); 
             entity.Appointment = null;
-        }
-    }
+		}
+		#endregion
+	}
 }

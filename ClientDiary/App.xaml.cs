@@ -13,22 +13,7 @@ namespace ClientDiary
 {
 	public partial class App : Application
 	{
-		private static ClientsRecordsViewModel _clientsRecords = null;
-		/// <summary>
-		/// A static ViewModel used by the views to bind against.
-		/// </summary>
-		/// <returns>The MainViewModel object.</returns>
-		public static ClientsRecordsViewModel WorkFlowDataContext
-		{
-			get
-			{
-				// Delay creation of the view model until necessary
-				if (_clientsRecords == null)
-					_clientsRecords = new ClientsRecordsViewModel();
-
-				return _clientsRecords;
-			}
-		}
+		
 
 		static DBManager _dbManager;
 		public static DBManager DBManager
@@ -92,10 +77,6 @@ namespace ClientDiary
 		private void Application_Activated(object sender, ActivatedEventArgs e)
 		{
 			// Ensure that application state is restored appropriately
-			if (!App.WorkFlowDataContext.IsDataLoaded)
-			{
-				App.WorkFlowDataContext.LoadData();
-			}
 		}
 
 		// Code to execute when the application is deactivated (sent to background)

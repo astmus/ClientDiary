@@ -2,12 +2,13 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using ClientDiary.Resources;
+using System.Linq;
 
 namespace ClientDiary.Models.ViewModels
 {
-	public class ClientsRecordsViewModel : BaseViewModel
+	public class AppointmentsViewModel : BaseViewModel
 	{
-		public ClientsRecordsViewModel()
+		public AppointmentsViewModel()
 		{
 			this.Records = new ObservableCollection<Appointment>();
 		}
@@ -25,10 +26,22 @@ namespace ClientDiary.Models.ViewModels
 			// Sample data; replace with real data
 			//this.Records.Add(new Appointment() { ID = "0", Name = "client1", Services = "service procedure 1" });
 			//this.Records.Add(new Appointment() { ID = "1", Name = "client2", Services = "service procedure 2" });
-
+			App.DBManager.Appointments.ToList().ForEach(x => { Records.Add(x); });
 			this.IsDataLoaded = true;
 		}
 
-		
+		public void AddAppointment(Appointment appointment)
+		{
+			Records.Add(appointment);
+			App.DBManager.Appointments.InsertOnSubmit(appointment);
+			App.DBManager.SubmitChanges();
+		}
+
+		public void DeleteAppointment(Appointment appointment)
+		{
+			Records.Remove(appointment);
+			App.DBManager.Appointments.DeleteOnSubmit(appointment);
+			App.DBManager.SubmitChanges();
+		}
 	}
 }

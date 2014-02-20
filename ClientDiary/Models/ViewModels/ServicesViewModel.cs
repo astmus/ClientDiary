@@ -33,8 +33,10 @@ namespace ClientDiary.Models.ViewModels
 
 		public void DeleteService(Service service)
 		{
-			Services.Add(service);
+			Services.Remove(service);
 			_dbManager.Services.DeleteOnSubmit(service);
+			var relatedAppointmentServices = _dbManager.AppointmentServices.Where(ap => ap.ServiceId == service.ServiceId);
+			_dbManager.AppointmentServices.DeleteAllOnSubmit(relatedAppointmentServices);
 			_dbManager.SubmitChanges();
 		}
 	}
