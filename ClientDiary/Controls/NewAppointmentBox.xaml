@@ -24,15 +24,12 @@
                                     <VisualState x:Name="Normal"/>
                                     <VisualState x:Name="Highlighted">
                                         <Storyboard>
-
                                             <ObjectAnimationUsingKeyFrames Storyboard.TargetName="Border" Storyboard.TargetProperty="Background" Duration="0">
                                                 <DiscreteObjectKeyFrame Value="{StaticResource PhoneSubtleBrush}" KeyTime="0"/>
                                             </ObjectAnimationUsingKeyFrames>
-
                                         </Storyboard>
                                     </VisualState>
                                     <VisualState x:Name="Disabled"/>
-
                                 </VisualStateGroup>
                             </VisualStateManager.VisualStateGroups>
                             <ContentControl
@@ -94,7 +91,7 @@
         </toolkit:ListPicker>
 
 		<TextBlock Padding="12,0,0,0" Text="Services"/>
-		<toolkit:ListPicker x:Name="servicesPicker" FullModeHeader="select services" BorderThickness="0" SelectionMode="Multiple" ExpansionMode="FullScreenOnly" >
+		<toolkit:ListPicker Margin="12,-10,0,0" x:Name="servicesPicker" FullModeHeader="select services" BorderThickness="0" SelectionMode="Multiple" ExpansionMode="FullScreenOnly" >
 			<toolkit:ListPicker.ItemTemplate>
 				<DataTemplate>
 					<StackPanel>
@@ -111,7 +108,9 @@
 				</DataTemplate>
 			</toolkit:ListPicker.FullModeItemTemplate>
 		</toolkit:ListPicker>
-        <Grid>
+		<toolkit:DatePicker x:Name="DatePicker" ValueStringFormat="{}{0:dd.MM.yyyy}"/>
+		<toolkit:TimePicker x:Name="TimePicker" ValueStringFormat="{}{0:hh:mm}"/>
+		<Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>

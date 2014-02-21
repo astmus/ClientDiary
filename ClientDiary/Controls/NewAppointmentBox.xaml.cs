@@ -36,8 +36,15 @@ namespace ClientDiary.Controls
 			get { return _selectedService; }
 			set { _selectedService = value; }
 		}
-		NewAppointmentBoxActionResult _result;
 
+		public DateTime dueDate
+		{
+			get;
+			set;
+		}
+		
+
+		NewAppointmentBoxActionResult _result;
 		public NewAppointmentBoxActionResult ActionResult
 		{
 			get { return _result; }
@@ -103,6 +110,13 @@ namespace ClientDiary.Controls
 				_result.SelectedClient = clientPicker.SelectedItem as Client;
 			if (servicesPicker.SelectedItems != null)
 				_result.SelectedServices = servicesPicker.SelectedItems.Cast<Service>().ToList();
+			if (DatePicker.Value.HasValue && TimePicker.Value.HasValue)
+			{
+				_result.dueDate = TimePicker.Value.Value;
+				_result.dueDate.
+ 
+			}
+			else MessageBox.Show("Please select date and time");
 			_result.ActionResult = actionResult;
             if (Dismissed != null)
                 Dismissed(this, _result);
