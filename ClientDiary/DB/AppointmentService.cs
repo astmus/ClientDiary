@@ -22,9 +22,7 @@ namespace ClientDiary.DB
         private EntityRef<Appointment> _Appointment;
 
         private EntityRef<Service> _Service;
-
-
-
+		
         public AppointmentService()
         {
             this._Appointment = default(EntityRef<Appointment>);

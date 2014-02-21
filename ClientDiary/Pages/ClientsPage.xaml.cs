@@ -28,6 +28,9 @@ namespace ClientDiary.Pages
 		PhoneTextBox _newClientPhone;
 		ClientsViewModel _viewModel;
 
+		public delegate void OnDeleteClient(Client client);
+		public event OnDeleteClient DeletingClient;
+
 		public ClientsPage()
 		{
 			InitializeComponent();
@@ -167,6 +170,8 @@ namespace ClientDiary.Pages
 		private void DeleteClient_Click(object sender, RoutedEventArgs e)
 		{
 			Client client = (sender as MenuItem).DataContext as Client;
+			if (DeletingClient != null)
+				DeletingClient(client);
 			_viewModel.DeleteClient(client);
 		}
 		#endregion

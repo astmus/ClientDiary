@@ -22,7 +22,7 @@ namespace ClientDiary.Models.ViewModels
 		/// Load data for view
 		/// </summary>
 		public override void LoadData()
-		{
+		{			
 			// Sample data; replace with real data
 			//this.Records.Add(new Appointment() { ID = "0", Name = "client1", Services = "service procedure 1" });
 			//this.Records.Add(new Appointment() { ID = "1", Name = "client2", Services = "service procedure 2" });

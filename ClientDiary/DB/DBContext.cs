@@ -18,7 +18,7 @@ namespace ClientDiary
             if (this.DatabaseExists() == false)
                 this.CreateDatabase();
         }
-
+		
         public System.Data.Linq.Table<Client> Clients
         {
             get

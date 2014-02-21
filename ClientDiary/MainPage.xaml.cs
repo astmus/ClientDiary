@@ -16,6 +16,7 @@ using ClientDiary.Controls;
 using System.Windows.Media;
 using ClientDiary.Models;
 using ClientDiary.Models.ViewModels;
+using ClientDiary.Pages;
 
 
 namespace ClientDiary
@@ -43,6 +44,27 @@ namespace ClientDiary
 		{
 			if (!_clientsRecords.IsDataLoaded)
 				_clientsRecords.LoadData();
+		}
+
+		protected override void OnNavigatedFrom(NavigationEventArgs e)
+		{
+			base.OnNavigatedFrom(e);
+			if (e.Content is ClientsPage)
+				(e.Content as ClientsPage).DeletingClient += OnDeleteClient;
+		}
+
+		void OnDeleteClient(Client client)
+		{
+			var list = _clientsRecords.Records.Where(app => app.Client.ClientId == client.ClientId).ToList();
+			foreach(Appointment i in list)
+				_clientsRecords.Records.Remove(i);
+			/*for (int i = 0; i < _clientsRecords.Records.Count; ++i)
+				if (_clientsRecords.Records[i].Client.ClientId == client.ClientId)
+				{
+					_clientsRecords.Records.RemoveAt(i);
+					--i;
+				}
+			 * */
 		}
 
 		// Handle selection changed on LongListSelector
