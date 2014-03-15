@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
   <DefaultLanguage xmlns="" code="en-US" />
+  <Languages xmlns="">
+    <Language code="qps-ploc" />
+    <Language code="ru-RU" />
+    <Language code="uk-UA" />
+    <Language code="uk" />
+  </Languages>
   <App xmlns="" ProductID="{e63d2ff4-1664-442d-aa94-a332fbbcd524}" Title="ClientDiary" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="ClientDiary author" Description="Sample description" Publisher="ClientDiary" PublisherID="{e03ce6cf-12d4-414d-8a83-c0e5648539b9}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>

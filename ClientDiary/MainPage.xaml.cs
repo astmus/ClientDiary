@@ -30,7 +30,7 @@ namespace ClientDiary
 		public MainPage()
 		{
 			InitializeComponent();
-
+			BuildLocalizedApplicationBar();
 			// Set the data context of the LongListSelector control to the sample data
 			_clientsRecords = new AppointmentsViewModel();
 			DataContext = _clientsRecords;
@@ -107,9 +107,9 @@ namespace ClientDiary
 			{
 				message = new CustomMessageBox()
 				{
-					Message = "There aren't any clients",
-					LeftButtonContent = "Add new client",
-					RightButtonContent = "Cancel",
+					Message = AppResources.UIMessageArentAnyClients,
+					LeftButtonContent = AppResources.UIAdd,
+					RightButtonContent = AppResources.UICancel,
 					Tag = AppPages.Clients
 				};
 			}
@@ -118,9 +118,9 @@ namespace ClientDiary
 			{
 				message = new CustomMessageBox()
 				{
-					Message = "There aren't any services",
-					LeftButtonContent = "Add new service",
-					RightButtonContent = "Cancel",
+					Message = AppResources.UIMessageArentAnyServices,
+					LeftButtonContent = AppResources.UIAdd,
+					RightButtonContent = AppResources.UICancel,
 					Tag = AppPages.Services
 				};				
 			}
@@ -168,19 +168,48 @@ namespace ClientDiary
 		}
 
 		// Sample code for building a localized ApplicationBar
-		//private void BuildLocalizedApplicationBar()
-		//{
-		//    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-		//    ApplicationBar = new ApplicationBar();
+		private void BuildLocalizedApplicationBar()
+		{
+			// Set the page's ApplicationBar to a new instance of ApplicationBar.
+			ApplicationBar = new ApplicationBar();
 
-		//    // Create a new button and set the text value to the localized string from AppResources.
-		//    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-		//    appBarButton.Text = AppResources.AppBarButtonText;
-		//    ApplicationBar.Buttons.Add(appBarButton);
+			/*
+			 
+		 <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="Clients" Click="ClientsMenuItem_Click" />
+                <shell:ApplicationBarMenuItem Text="Services" Click="ServicesMenuItem_Click"/>
+                <shell:ApplicationBarMenuItem Text="Statistic" Click="StatisticMenuItem_Click"/>
+            </shell:ApplicationBar.MenuItems>
+            <shell:ApplicationBarIconButton IconUri="/Images/Icons/add.png" Text="add record" Click="AddServiceRecordIconButton_Click"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/Icons/feature.settings.png" Text="settings" Click="SettingsIconButton_Click"/>
+        </shell:ApplicationBar>
+			 
+			 */
 
-		//    // Create a new menu item with the localized string from AppResources.
-		//    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-		//    ApplicationBar.MenuItems.Add(appBarMenuItem);
-		//}
+
+			// Create a new button and set the text value to the localized string from AppResources.
+			ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Images/Icons/add.png", UriKind.Relative));
+			appBarButton.Text = AppResources.UIAddRecord;
+			appBarButton.Click += AddServiceRecordIconButton_Click;
+			ApplicationBar.Buttons.Add(appBarButton);
+
+			appBarButton = new ApplicationBarIconButton(new Uri("/Images/Icons/feature.settings.png", UriKind.Relative));
+			appBarButton.Text = AppResources.UISettings;
+			appBarButton.Click += SettingsIconButton_Click;
+			ApplicationBar.Buttons.Add(appBarButton);
+
+			// Create a new menu item with the localized string from AppResources.
+			ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.UIClients);
+			appBarButton.Click += ClientsMenuItem_Click;
+			ApplicationBar.MenuItems.Add(appBarMenuItem);
+
+			appBarMenuItem = new ApplicationBarMenuItem(AppResources.UIServices);
+			appBarButton.Click += ServicesMenuItem_Click;
+			ApplicationBar.MenuItems.Add(appBarMenuItem);
+
+			appBarMenuItem = new ApplicationBarMenuItem(AppResources.UIStatistic);
+			appBarButton.Click += StatisticMenuItem_Click;
+			ApplicationBar.MenuItems.Add(appBarMenuItem);
+		}
 	}
 }

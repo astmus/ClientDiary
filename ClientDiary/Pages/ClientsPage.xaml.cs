@@ -81,10 +81,10 @@ namespace ClientDiary.Pages
 
 					_addClientBox = new CustomMessageBox()
 					{
-						Title = "Add new client",
-						Message = "Enter new client info and press Ok",
+						Title = AppResources.UIAddNewClient,
+						Message = AppResources.UIMessageEnterClientInfo,
 						LeftButtonContent = "Ok",
-						RightButtonContent = "Cancel",
+						RightButtonContent = AppResources.UICancel,
 						Content = _content
 					};
 					_addClientBox.Dismissed += NewClientInfoEntered;
@@ -121,9 +121,9 @@ namespace ClientDiary.Pages
 			{
 				_offerAddClientBox = new CustomMessageBox()
 				{
-					LeftButtonContent = "From contacts",
-					RightButtonContent = "By hand",
-					Message = "How to add a new client?"
+					LeftButtonContent = AppResources.UIFromContacts,
+					RightButtonContent = AppResources.UIByHands,
+					Message = AppResources.UIMessageHowToAddNewClient
 				};
 				_offerAddClientBox.Dismissed += OnDismissed;
 			}

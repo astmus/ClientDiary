@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="ru-RU" original="AppResources.resx" tool-id="MultilingualAppToolkit" product-name="ClientDiary" product-version="1.0.0.0" build-num="0">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="2.2.1212.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="Resx">
+        <trans-unit id="Resx/ResourceFlowDirection" translate="yes" xml:space="preserve">
+          <source>LeftToRight</source>
+          <target state="translated">LeftToRight</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</note></trans-unit>
+        <trans-unit id="Resx/ResourceLanguage" translate="yes" xml:space="preserve">
+          <source>en-US</source>
+          <target state="translated">ru-RU</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</note></trans-unit>
+        <trans-unit id="Resx/ApplicationTitle" translate="yes" xml:space="preserve">
+          <source>MY APPLICATION</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">мое приложение</target>
+        </trans-unit>
+        <trans-unit id="Resx/SampleProperty" translate="yes" xml:space="preserve">
+          <source>Sample Runtime Property Value</source>
+          <target state="translated" state-qualifier="tm-suggestion">Пример значения свойства среды выполнения</target>
+        </trans-unit>
+        <trans-unit id="Resx/AppBarButtonText" translate="yes" xml:space="preserve">
+          <source>add</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">добавить</target>
+        </trans-unit>
+        <trans-unit id="Resx/AppBarMenuItemText" translate="yes" xml:space="preserve">
+          <source>Menu Item</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">элемент меню</target>
+        </trans-unit>
+        <trans-unit id="Resx/String1" translate="yes" xml:space="preserve">
+          <source />
+          <target state="needs-review-translation" />
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">6</note></trans-unit>
+        <trans-unit id="Resx/UIAdd" translate="yes" xml:space="preserve">
+          <source>Add</source>
+          <target state="translated" state-qualifier="tm-suggestion">добавить</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">3</note></trans-unit>
+        <trans-unit id="Resx/UIAddNewClient" translate="yes" xml:space="preserve">
+          <source>Add new client</source>
+          <target state="translated">Добавить нового клиента</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">7</note></trans-unit>
+        <trans-unit id="Resx/UIAddNewService" translate="yes" xml:space="preserve">
+          <source>Add new service</source>
+          <target state="translated">Добавить новую службу</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">5</note></trans-unit>
+        <trans-unit id="Resx/UIAddRecord" translate="yes" xml:space="preserve">
+          <source>Add Record</source>
+          <target state="translated" state-qualifier="tm-suggestion">Добавить запись</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">3</note></trans-unit>
+        <trans-unit id="Resx/UIByHands" translate="yes" xml:space="preserve">
+          <source>By hands</source>
+          <target state="translated">В ручную</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">0</note></trans-unit>
+        <trans-unit id="Resx/UICancel" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated" state-qualifier="tm-suggestion">Отмена</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">8</note></trans-unit>
+        <trans-unit id="Resx/UIClient" translate="yes" xml:space="preserve">
+          <source>Client</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">клиент</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">4</note></trans-unit>
+        <trans-unit id="Resx/UIClients" translate="yes" xml:space="preserve">
+          <source>Clients</source>
+          <target state="translated" state-qualifier="tm-suggestion">Клиенты</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">4</note></trans-unit>
+        <trans-unit id="Resx/UIFromContacts" translate="yes" xml:space="preserve">
+          <source>From contacts</source>
+          <target state="translated" state-qualifier="tm-suggestion">Из контактов</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">9</note></trans-unit>
+        <trans-unit id="Resx/UIMesageAddNewClient" translate="yes" xml:space="preserve">
+          <source>Add new clent</source>
+          <target state="translated">Добавить нового клиента</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">4</note></trans-unit>
+        <trans-unit id="Resx/UIMessageAddNewService" translate="yes" xml:space="preserve">
+          <source>Add new service</source>
+          <target state="translated">Добавить новую услугу</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">1</note></trans-unit>
+        <trans-unit id="Resx/UIMessageArentAnyClients" translate="yes" xml:space="preserve">
+          <source>There aren't any clients</source>
+          <target state="translated">Клиентов пока нет</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">7</note></trans-unit>
+        <trans-unit id="Resx/UIMessageArentAnyServices" translate="yes" xml:space="preserve">
+          <source>There aren't any services</source>
+          <target state="translated">Служб пока нет</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">6</note></trans-unit>
+        <trans-unit id="Resx/UIMessageEnterClientInfo" translate="yes" xml:space="preserve">
+          <source>Enter new client info and press Ok</source>
+          <target state="translated">Введите информацию о клиенте и нажмите Ok</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">3</note></trans-unit>
+        <trans-unit id="Resx/UIMessageEnterServiceInfo" translate="yes" xml:space="preserve">
+          <source>Enter service's info and press Ok</source>
+          <target state="translated">Введите информацию об услуге и нажмите Ok</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">2</note></trans-unit>
+        <trans-unit id="Resx/UIMessageSelectServices" translate="yes" xml:space="preserve">
+          <source>select services</source>
+          <target state="translated">выбор услуг</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">5</note></trans-unit>
+        <trans-unit id="Resx/UIName" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">имя</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">1</note></trans-unit>
+        <trans-unit id="Resx/UIPhone" translate="yes" xml:space="preserve">
+          <source>Phone</source>
+          <target state="translated" state-qualifier="tm-suggestion">телефон</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">2</note></trans-unit>
+        <trans-unit id="Resx/UIServices" translate="yes" xml:space="preserve">
+          <source>Services</source>
+          <target state="translated">Услуги</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">5</note></trans-unit>
+        <trans-unit id="Resx/UIServicesName" translate="yes" xml:space="preserve">
+          <source>services's name</source>
+          <target state="translated">название услуги</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">8</note></trans-unit>
+        <trans-unit id="Resx/UIServicesPrice" translate="yes" xml:space="preserve">
+          <source>service's price</source>
+          <target state="translated">стоимость услуги</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">9</note></trans-unit>
+        <trans-unit id="Resx/UISettings" translate="yes" xml:space="preserve">
+          <source>settings</source>
+          <target state="translated">настройки</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">2</note></trans-unit>
+        <trans-unit id="Resx/UIStatistic" translate="yes" xml:space="preserve">
+          <source>Statistic</source>
+          <target state="translated">Статистика</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">6</note></trans-unit>
+        <trans-unit id="Resx/UIWorkflow" translate="yes" xml:space="preserve">
+          <source>Workflow</source>
+          <target state="translated">Рабочий процесс</target>
+          
+        <note from="MultilingualBuild" annotates="source" priority="2">1</note></trans-unit>
+        <trans-unit translate="yes" id="Resx/UIMessageHowToAddNewClient" xml:space="preserve">
+          <source>How to add a new client?</source>
+          <target state="translated">Как добавить нового клиента?</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

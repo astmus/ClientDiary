@@ -9,6 +9,6 @@ namespace ClientDiary
 	{
 		private static AppResources _localizedResources = new AppResources();
 
-		public AppResources LocalizedResources { get { return _localizedResources; } }
+		public AppResources Localization { get { return _localizedResources; } }
 	}
 }

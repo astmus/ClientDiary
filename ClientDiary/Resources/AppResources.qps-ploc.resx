@@ -122,122 +122,36 @@
     <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
   </data>
   <data name="ResourceLanguage" xml:space="preserve">
-    <value>en-US</value>
+    <value>qps-ploc</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
-  <data name="ApplicationTitle" xml:space="preserve">
-    <value>MY APPLICATION</value>
-  </data>
-  <data name="SampleProperty" xml:space="preserve">
-    <value>Sample Runtime Property Value</value>
-  </data>
-  <data name="AppBarButtonText" xml:space="preserve">
-    <value>add</value>
-  </data>
-  <data name="AppBarMenuItemText" xml:space="preserve">
-    <value>Menu Item</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value />
-    <comment>6</comment>
-  </data>
-  <data name="UIAdd" xml:space="preserve">
-    <value>Add</value>
-    <comment>3</comment>
-  </data>
-  <data name="UIAddNewClient" xml:space="preserve">
-    <value>Add new client</value>
-    <comment>7</comment>
-  </data>
-  <data name="UIAddNewService" xml:space="preserve">
-    <value>Add new service</value>
-    <comment>5</comment>
-  </data>
-  <data name="UIAddRecord" xml:space="preserve">
-    <value>Add Record</value>
-    <comment>3</comment>
-  </data>
-  <data name="UIByHands" xml:space="preserve">
-    <value>By hands</value>
-    <comment>0</comment>
-  </data>
-  <data name="UICancel" xml:space="preserve">
-    <value>Cancel</value>
-    <comment>8</comment>
-  </data>
-  <data name="UIClient" xml:space="preserve">
-    <value>Client</value>
-    <comment>4</comment>
-  </data>
-  <data name="UIClients" xml:space="preserve">
-    <value>Clients</value>
-    <comment>4</comment>
-  </data>
-  <data name="UIFromContacts" xml:space="preserve">
-    <value>From contacts</value>
-    <comment>9</comment>
-  </data>
-  <data name="UIMesageAddNewClient" xml:space="preserve">
-    <value>Add new clent</value>
-    <comment>4</comment>
-  </data>
-  <data name="UIMessageAddNewService" xml:space="preserve">
-    <value>Add new service</value>
-    <comment>1</comment>
-  </data>
-  <data name="UIMessageArentAnyClients" xml:space="preserve">
-    <value>There aren't any clients</value>
-    <comment>7</comment>
-  </data>
-  <data name="UIMessageArentAnyServices" xml:space="preserve">
-    <value>There aren't any services</value>
-    <comment>6</comment>
-  </data>
-  <data name="UIMessageEnterClientInfo" xml:space="preserve">
-    <value>Enter new client info and press Ok</value>
-    <comment>3</comment>
-  </data>
-  <data name="UIMessageEnterServiceInfo" xml:space="preserve">
-    <value>Enter service's info and press Ok</value>
-    <comment>2</comment>
-  </data>
-  <data name="UIMessageSelectServices" xml:space="preserve">
-    <value>select services</value>
-    <comment>5</comment>
-  </data>
-  <data name="UIName" xml:space="preserve">
-    <value>Name</value>
-    <comment>1</comment>
-  </data>
-  <data name="UIPhone" xml:space="preserve">
-    <value>Phone</value>
-    <comment>2</comment>
-  </data>
-  <data name="UIServices" xml:space="preserve">
-    <value>Services</value>
-    <comment>5</comment>
-  </data>
-  <data name="UIServicesName" xml:space="preserve">
-    <value>services's name</value>
-    <comment>8</comment>
-  </data>
-  <data name="UIServicesPrice" xml:space="preserve">
-    <value>service's price</value>
-    <comment>9</comment>
-  </data>
-  <data name="UISettings" xml:space="preserve">
-    <value>settings</value>
-    <comment>2</comment>
-  </data>
-  <data name="UIStatistic" xml:space="preserve">
-    <value>Statistic</value>
-    <comment>6</comment>
-  </data>
-  <data name="UIWorkflow" xml:space="preserve">
-    <value>Workflow</value>
-    <comment>1</comment>
-  </data>
-  <data name="UIMessageHowToAddNewClient" xml:space="preserve">
-    <value>How to add a new client?</value>
-  </data>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </root>

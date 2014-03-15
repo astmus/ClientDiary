@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    xmlns:local="clr-namespace:ClientDiary"
     x:Class="ClientDiary.MainPage"
     mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -22,6 +23,10 @@
         </ResourceDictionary>
     </phone:PhoneApplicationPage.Resources>
     
+    <phone:PhoneApplicationPage.DataContext>
+        <local:LocalizedStrings/>
+    </phone:PhoneApplicationPage.DataContext>
+       
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -29,7 +34,8 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="Wokrflow" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <!--<TextBlock Text="{Binding Path=LocalizedResources.UIWorkflow, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>-->
+            <TextBlock Text="{Binding Localization.UIWorkflow, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
             <!--<TextBlock Text="page name" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>-->
         </StackPanel>
 

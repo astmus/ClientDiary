@@ -122,122 +122,120 @@
     <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
   </data>
   <data name="ResourceLanguage" xml:space="preserve">
-    <value>en-US</value>
+    <value>ru-RU</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
-    <value>MY APPLICATION</value>
+    <value>мое приложение</value>
   </data>
   <data name="SampleProperty" xml:space="preserve">
-    <value>Sample Runtime Property Value</value>
+    <value>Пример значения свойства среды выполнения</value>
   </data>
   <data name="AppBarButtonText" xml:space="preserve">
-    <value>add</value>
+    <value>добавить</value>
   </data>
   <data name="AppBarMenuItemText" xml:space="preserve">
-    <value>Menu Item</value>
+    <value>элемент меню</value>
   </data>
   <data name="String1" xml:space="preserve">
-    <value />
+    <value></value>
     <comment>6</comment>
   </data>
   <data name="UIAdd" xml:space="preserve">
-    <value>Add</value>
+    <value>добавить</value>
     <comment>3</comment>
   </data>
   <data name="UIAddNewClient" xml:space="preserve">
-    <value>Add new client</value>
+    <value>Добавить нового клиента</value>
     <comment>7</comment>
   </data>
   <data name="UIAddNewService" xml:space="preserve">
-    <value>Add new service</value>
+    <value>Добавить новую службу</value>
     <comment>5</comment>
   </data>
   <data name="UIAddRecord" xml:space="preserve">
-    <value>Add Record</value>
+    <value>Добавить запись</value>
     <comment>3</comment>
   </data>
   <data name="UIByHands" xml:space="preserve">
-    <value>By hands</value>
+    <value>В ручную</value>
     <comment>0</comment>
   </data>
   <data name="UICancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>Отмена</value>
     <comment>8</comment>
   </data>
   <data name="UIClient" xml:space="preserve">
-    <value>Client</value>
+    <value>клиент</value>
     <comment>4</comment>
   </data>
   <data name="UIClients" xml:space="preserve">
-    <value>Clients</value>
+    <value>Клиенты</value>
     <comment>4</comment>
   </data>
   <data name="UIFromContacts" xml:space="preserve">
-    <value>From contacts</value>
+    <value>Из контактов</value>
     <comment>9</comment>
   </data>
   <data name="UIMesageAddNewClient" xml:space="preserve">
-    <value>Add new clent</value>
+    <value>Добавить нового клиента</value>
     <comment>4</comment>
   </data>
   <data name="UIMessageAddNewService" xml:space="preserve">
-    <value>Add new service</value>
+    <value>Добавить новую услугу</value>
     <comment>1</comment>
   </data>
   <data name="UIMessageArentAnyClients" xml:space="preserve">
-    <value>There aren't any clients</value>
+    <value>Клиентов пока нет</value>
     <comment>7</comment>
   </data>
   <data name="UIMessageArentAnyServices" xml:space="preserve">
-    <value>There aren't any services</value>
+    <value>Служб пока нет</value>
     <comment>6</comment>
   </data>
   <data name="UIMessageEnterClientInfo" xml:space="preserve">
-    <value>Enter new client info and press Ok</value>
+    <value>Введите новую информацию клиента и нажмите Ok</value>
     <comment>3</comment>
   </data>
   <data name="UIMessageEnterServiceInfo" xml:space="preserve">
-    <value>Enter service's info and press Ok</value>
+    <value>Введите информацию об услуге и нажмите Ok</value>
     <comment>2</comment>
   </data>
   <data name="UIMessageSelectServices" xml:space="preserve">
-    <value>select services</value>
+    <value>выбор услуг</value>
     <comment>5</comment>
   </data>
   <data name="UIName" xml:space="preserve">
-    <value>Name</value>
+    <value>имя</value>
     <comment>1</comment>
   </data>
   <data name="UIPhone" xml:space="preserve">
-    <value>Phone</value>
+    <value>телефон</value>
     <comment>2</comment>
   </data>
   <data name="UIServices" xml:space="preserve">
-    <value>Services</value>
+    <value>Услуги</value>
     <comment>5</comment>
   </data>
   <data name="UIServicesName" xml:space="preserve">
-    <value>services's name</value>
+    <value>название услуги</value>
     <comment>8</comment>
   </data>
   <data name="UIServicesPrice" xml:space="preserve">
-    <value>service's price</value>
+    <value>стоимость услуги</value>
     <comment>9</comment>
   </data>
   <data name="UISettings" xml:space="preserve">
-    <value>settings</value>
+    <value>настройки</value>
     <comment>2</comment>
   </data>
   <data name="UIStatistic" xml:space="preserve">
-    <value>Statistic</value>
+    <value>Статистика</value>
     <comment>6</comment>
   </data>
   <data name="UIWorkflow" xml:space="preserve">
-    <value>Workflow</value>
+    <value>Рабочий процесс</value>
     <comment>1</comment>
   </data>
-  <data name="UIMessageHowToAddNewClient" xml:space="preserve">
-    <value>How to add a new client?</value>
-  </data>
-</root>
+  
+<data name="UIMessageHowToAddNewClient" xml:space="preserve"><value>Как добавить нового клиента?</value></data></root>
