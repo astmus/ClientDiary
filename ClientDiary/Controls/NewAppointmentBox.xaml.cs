@@ -113,7 +113,7 @@ namespace ClientDiary.Controls
 			if (DatePicker.Value.HasValue && TimePicker.Value.HasValue)
 			{
 				_result.dueDate = TimePicker.Value.Value;
-				_result.dueDate.
+				//_result.dueDate.
  
 			}
 			else MessageBox.Show("Please select date and time");

@@ -155,6 +155,7 @@ namespace ClientDiary.Pages
 
 		private void ClientInfoSelectCompleted(object sender, PhoneNumberResult e)
 		{
+			if (e.TaskResult == TaskResult.Cancel) return;
 			Debug.WriteLine("Selected phone number = " + e.DisplayName + " - " + e.PhoneNumber);
 			Scheduler.Dispatcher.Schedule( ()=>
 			{
