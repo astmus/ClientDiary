@@ -64,6 +64,15 @@ namespace ClientDiary.Models
 			}
 		}
 
+		public SolidColorBrush HighlightedColor
+		{
+			get{
+				TimeSpan d = _DueDate - DateTime.Now;
+				return Application.Current.Resources[d < Settings.Instance.HighLightedAppointmentsTime ? "PhoneAccentBrush" : "PhoneForegroundBrush"] as SolidColorBrush;
+			}
+			
+		}
+
 		#endregion
 
 		#region public methods

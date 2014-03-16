@@ -268,6 +268,24 @@ namespace ClientDiary.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No seleted services.
+        /// </summary>
+        public static string UIMessageNoSelectedServices {
+            get {
+                return ResourceManager.GetString("UIMessageNoSelectedServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please select at least one service.
+        /// </summary>
+        public static string UIMessagePleaseSelectServices {
+            get {
+                return ResourceManager.GetString("UIMessagePleaseSelectServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to select services.
         /// </summary>
         public static string UIMessageSelectServices {

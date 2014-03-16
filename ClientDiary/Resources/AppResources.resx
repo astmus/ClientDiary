@@ -240,4 +240,10 @@
   <data name="UIMessageHowToAddNewClient" xml:space="preserve">
     <value>How to add a new client?</value>
   </data>
+  <data name="UIMessageNoSelectedServices" xml:space="preserve">
+    <value>No seleted services</value>
+  </data>
+  <data name="UIMessagePleaseSelectServices" xml:space="preserve">
+    <value>Please select at least one service</value>
+  </data>
 </root>

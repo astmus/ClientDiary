@@ -11,6 +11,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using ClientDiary.Models;
 using System.Collections;
+using ClientDiary.Resources;
 
 namespace ClientDiary.Controls
 {
@@ -37,7 +38,7 @@ namespace ClientDiary.Controls
 			set { _selectedService = value; }
 		}
 
-		public DateTime dueDate
+		public DateTime DueDate
 		{
 			get;
 			set;
@@ -106,20 +107,25 @@ namespace ClientDiary.Controls
 
 		void RiseDissmisEvent(NewAppointmentBoxActionResult actionResult)
         {
-			if (clientPicker.SelectedItem != null)
-				_result.SelectedClient = clientPicker.SelectedItem as Client;
-			if (servicesPicker.SelectedItems != null)
-				_result.SelectedServices = servicesPicker.SelectedItems.Cast<Service>().ToList();
-			if (DatePicker.Value.HasValue && TimePicker.Value.HasValue)
+			if (actionResult == NewAppointmentBoxActionResult.Added)
 			{
-				_result.dueDate = TimePicker.Value.Value;
-				//_result.dueDate.
- 
+				if (clientPicker.SelectedItem != null)
+					_result.SelectedClient = clientPicker.SelectedItem as Client;
+				if (servicesPicker.SelectedItems != null)
+					_result.SelectedServices = servicesPicker.SelectedItems.Cast<Service>().ToList();
+				else
+				{
+					MessageBox.Show(AppResources.UIMessagePleaseSelectServices, AppResources.UIMessageNoSelectedServices, MessageBoxButton.OK);
+					return;
+				}
+
+				_result.DueDate = DatePicker.Value.Value.Add(TimePicker.Value.Value.TimeOfDay);
 			}
-			else MessageBox.Show("Please select date and time");
 			_result.ActionResult = actionResult;
-            if (Dismissed != null)
-                Dismissed(this, _result);
+
+			CloseBox();
+			if (Dismissed != null)
+				Dismissed(this, _result);
         }
 
         void CloseBox()
@@ -134,20 +140,17 @@ namespace ClientDiary.Controls
         void PageBackKeyPress(object sender, 
             System.ComponentModel.CancelEventArgs e)
         {
-            CloseBox();
             e.Cancel = true;
             RiseDissmisEvent(NewAppointmentBoxActionResult.Canceled);
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            CloseBox();
             RiseDissmisEvent(NewAppointmentBoxActionResult.Added);
         }
 
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
-            CloseBox();
             RiseDissmisEvent(NewAppointmentBoxActionResult.Canceled);
         }
 

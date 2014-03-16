@@ -45,7 +45,7 @@
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
 							<TextBlock Text="{Binding Path=Client.Name}" TextWrapping="Wrap"  Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-							<TextBlock Text="{Binding DueDate}" Margin="12,-10,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                            <TextBlock Text="{Binding DueDate, StringFormat='{}{0:dddd hh:mm dd.MM.yyyy}'}" Foreground="{Binding HighlightedColor}"  Margin="12,-5,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
 							<TextBlock Text="{Binding ServicesList}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                         </StackPanel>
                     </DataTemplate>

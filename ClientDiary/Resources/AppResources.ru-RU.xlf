@@ -161,6 +161,14 @@
           <source>How to add a new client?</source>
           <target state="translated">Как добавить нового клиента?</target>
         </trans-unit>
+        <trans-unit translate="yes" id="Resx/UIMessageNoSelectedServices" xml:space="preserve">
+          <source>No seleted services</source>
+          <target state="new">No seleted services</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/UIMessagePleaseSelectServices" xml:space="preserve">
+          <source>Please select at least one service</source>
+          <target state="new">Please select at least one service</target>
+        </trans-unit>
       </group>
     </body>
   </file>

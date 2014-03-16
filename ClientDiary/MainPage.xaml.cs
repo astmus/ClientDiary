@@ -146,7 +146,7 @@ namespace ClientDiary
             {
                 case NewAppointmentBoxActionResult.Added:
 					Appointment app = new Appointment();
-					app.DueDate = DateTime.Now;
+					app.DueDate = e.DueDate;
 					app.Client = e.SelectedClient;
 					app.AddServices(e.SelectedServices);
 					_clientsRecords.AddAppointment(app);
@@ -172,21 +172,7 @@ namespace ClientDiary
 		{
 			// Set the page's ApplicationBar to a new instance of ApplicationBar.
 			ApplicationBar = new ApplicationBar();
-
-			/*
-			 
-		 <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="Clients" Click="ClientsMenuItem_Click" />
-                <shell:ApplicationBarMenuItem Text="Services" Click="ServicesMenuItem_Click"/>
-                <shell:ApplicationBarMenuItem Text="Statistic" Click="StatisticMenuItem_Click"/>
-            </shell:ApplicationBar.MenuItems>
-            <shell:ApplicationBarIconButton IconUri="/Images/Icons/add.png" Text="add record" Click="AddServiceRecordIconButton_Click"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/Icons/feature.settings.png" Text="settings" Click="SettingsIconButton_Click"/>
-        </shell:ApplicationBar>
-			 
-			 */
-
-
+			
 			// Create a new button and set the text value to the localized string from AppResources.
 			ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Images/Icons/add.png", UriKind.Relative));
 			appBarButton.Text = AppResources.UIAddRecord;

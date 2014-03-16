@@ -194,7 +194,7 @@
     <comment>6</comment>
   </data>
   <data name="UIMessageEnterClientInfo" xml:space="preserve">
-    <value>Введите новую информацию клиента и нажмите Ok</value>
+    <value>Введите информацию о клиенте и нажмите Ok</value>
     <comment>3</comment>
   </data>
   <data name="UIMessageEnterServiceInfo" xml:space="preserve">
