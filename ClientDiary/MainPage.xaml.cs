@@ -30,7 +30,7 @@ namespace ClientDiary
 		public MainPage()
 		{
 			InitializeComponent();
-			BuildLocalizedApplicationBar();
+			
 			// Set the data context of the LongListSelector control to the sample data
 			_clientsRecords = new AppointmentsViewModel();
 			DataContext = _clientsRecords;
@@ -42,6 +42,7 @@ namespace ClientDiary
 		// Load data for the ViewModel Items
 		protected override void OnNavigatedTo(NavigationEventArgs e)
 		{
+			BuildLocalizedApplicationBar();
 			if (!_clientsRecords.IsDataLoaded)
 				_clientsRecords.LoadData();
 		}
@@ -186,15 +187,15 @@ namespace ClientDiary
 
 			// Create a new menu item with the localized string from AppResources.
 			ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.UIClients);
-			appBarButton.Click += ClientsMenuItem_Click;
+			appBarMenuItem.Click += ClientsMenuItem_Click;
 			ApplicationBar.MenuItems.Add(appBarMenuItem);
 
 			appBarMenuItem = new ApplicationBarMenuItem(AppResources.UIServices);
-			appBarButton.Click += ServicesMenuItem_Click;
+			appBarMenuItem.Click += ServicesMenuItem_Click;
 			ApplicationBar.MenuItems.Add(appBarMenuItem);
 
 			appBarMenuItem = new ApplicationBarMenuItem(AppResources.UIStatistic);
-			appBarButton.Click += StatisticMenuItem_Click;
+			appBarMenuItem.Click += StatisticMenuItem_Click;
 			ApplicationBar.MenuItems.Add(appBarMenuItem);
 		}
 	}
