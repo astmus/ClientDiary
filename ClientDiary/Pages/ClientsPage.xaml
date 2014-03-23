@@ -27,7 +27,7 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="CLIENTS" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="{Binding Localization.UIClients, Source={StaticResource LocalizedStrings}}" Style="{StaticResource PhoneTextNormalStyle}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -38,7 +38,7 @@
                         <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                             <toolkit:ContextMenuService.ContextMenu>
                                 <toolkit:ContextMenu>
-                                    <toolkit:MenuItem Click="DeleteClient_Click"  Header="delete" />
+                                    <toolkit:MenuItem Click="DeleteClient_Click"  Header="{Binding Localization.MenuItemDelete, Source={StaticResource LocalizedStrings}}" />
                                 </toolkit:ContextMenu>
                             </toolkit:ContextMenuService.ContextMenu>
                             <TextBlock Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>

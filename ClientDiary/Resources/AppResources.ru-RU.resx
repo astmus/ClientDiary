@@ -146,11 +146,11 @@
     <comment>3</comment>
   </data>
   <data name="UIAddNewClient" xml:space="preserve">
-    <value>Добавить нового клиента</value>
+    <value>Добавить клиента</value>
     <comment>7</comment>
   </data>
   <data name="UIAddNewService" xml:space="preserve">
-    <value>Добавить новую службу</value>
+    <value>Добавить новую услугу</value>
     <comment>5</comment>
   </data>
   <data name="UIAddRecord" xml:space="preserve">
@@ -190,7 +190,7 @@
     <comment>7</comment>
   </data>
   <data name="UIMessageArentAnyServices" xml:space="preserve">
-    <value>Служб пока нет</value>
+    <value>Услуг пока нет</value>
     <comment>6</comment>
   </data>
   <data name="UIMessageEnterClientInfo" xml:space="preserve">
@@ -226,7 +226,7 @@
     <comment>9</comment>
   </data>
   <data name="UISettings" xml:space="preserve">
-    <value>настройки</value>
+    <value>Hастройки</value>
     <comment>2</comment>
   </data>
   <data name="UIStatistic" xml:space="preserve">
@@ -238,4 +238,4 @@
     <comment>1</comment>
   </data>
   
-<data name="UIMessageHowToAddNewClient" xml:space="preserve"><value>Как добавить нового клиента?</value></data></root>
+<data name="UIMessageHowToAddNewClient" xml:space="preserve"><value>Как добавить нового клиента?</value></data><data name="MenuItemDelete" xml:space="preserve"><value>удалить</value></data><data name="UIMessagePleaseEnterName" xml:space="preserve"><value>Пожалуйста введите имя пользователя</value></data></root>

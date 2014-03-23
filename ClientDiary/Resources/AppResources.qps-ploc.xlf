@@ -143,8 +143,8 @@
           <note from="MultilingualBuild" annotates="source" priority="2">9</note>
         </trans-unit>
         <trans-unit translate="yes" id="Resx/UISettings" xml:space="preserve">
-          <source>settings</source>
-          <target state="new">settings</target>
+          <source>Settings</source>
+          <target state="new">Settings</target>
           <note from="MultilingualBuild" annotates="source" priority="2">2</note>
         </trans-unit>
         <trans-unit translate="yes" id="Resx/UIStatistic" xml:space="preserve">
@@ -168,6 +168,14 @@
         <trans-unit translate="yes" id="Resx/UIMessagePleaseSelectServices" xml:space="preserve">
           <source>Please select at least one service</source>
           <target state="new">Please select at least one service</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/MenuItemDelete" xml:space="preserve">
+          <source>delete</source>
+          <target state="new">delete</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/UIMessagePleaseEnterName" xml:space="preserve">
+          <source>Please enter user name</source>
+          <target state="new">Please enter user name</target>
         </trans-unit>
       </group>
     </body>

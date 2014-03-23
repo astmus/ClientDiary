@@ -226,7 +226,7 @@
     <comment>9</comment>
   </data>
   <data name="UISettings" xml:space="preserve">
-    <value>settings</value>
+    <value>Settings</value>
     <comment>2</comment>
   </data>
   <data name="UIStatistic" xml:space="preserve">
@@ -245,5 +245,11 @@
   </data>
   <data name="UIMessagePleaseSelectServices" xml:space="preserve">
     <value>Please select at least one service</value>
+  </data>
+  <data name="MenuItemDelete" xml:space="preserve">
+    <value>delete</value>
+  </data>
+  <data name="UIMessagePleaseEnterName" xml:space="preserve">
+    <value>Please enter user name</value>
   </data>
 </root>

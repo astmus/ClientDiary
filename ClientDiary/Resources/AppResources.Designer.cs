@@ -88,6 +88,15 @@ namespace ClientDiary.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to delete.
+        /// </summary>
+        public static string MenuItemDelete {
+            get {
+                return ResourceManager.GetString("MenuItemDelete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LeftToRight.
         /// </summary>
         public static string ResourceFlowDirection {
@@ -277,6 +286,15 @@ namespace ClientDiary.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please enter user name.
+        /// </summary>
+        public static string UIMessagePleaseEnterName {
+            get {
+                return ResourceManager.GetString("UIMessagePleaseEnterName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select at least one service.
         /// </summary>
         public static string UIMessagePleaseSelectServices {
@@ -340,7 +358,7 @@ namespace ClientDiary.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to settings.
+        ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string UISettings {
             get {

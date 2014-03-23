@@ -104,6 +104,7 @@ namespace ClientDiary
 		private void AddServiceRecordIconButton_Click(object sender, EventArgs e)
 		{
 			CustomMessageBox message = null;
+			var r = _dbManager.Clients.ToList();
 			if (_dbManager.Clients.Count() == 0)
 			{
 				message = new CustomMessageBox()
@@ -163,6 +164,7 @@ namespace ClientDiary
 			if (e.Result == CustomMessageBoxResult.LeftButton)
 			{
 				Uri addClientUri = AppPages.AddAction(box.Tag as Uri,AppPages.Actions.Add);
+				
 				//little spike for correct display CustomMessageBox
 				Scheduler.Dispatcher.Schedule(() => { NavigationService.Navigate(addClientUri); }, TimeSpan.FromMilliseconds(230));	
 			}

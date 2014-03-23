@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using System.Windows.Input;
 using ClientDiary.Models;
 using ClientDiary.Models.ViewModels;
+using ClientDiary.Resources;
 
 namespace ClientDiary.Pages
 {
@@ -23,6 +24,7 @@ namespace ClientDiary.Pages
 		public ServicesPage()
 		{
 			InitializeComponent();
+			BuildLocalizedApplicationBar();
 			_viewModel = new ServicesViewModel();
 			DataContext = _viewModel;
 		}
@@ -55,17 +57,17 @@ namespace ClientDiary.Pages
 				(_addNewServiceBox.Parent as Panel).Children.Remove(_addNewServiceBox);
 			else
 			{
-				Utils.InitTextBox(ref _serviceName, "service's name");
-				Utils.InitTextBox(ref _servicePrice, "service's price", InputScopeNameValue.Number);
+				Utils.InitTextBox(ref _serviceName, AppResources.UIServicesName);
+				Utils.InitTextBox(ref _servicePrice, AppResources.UIServicesPrice, InputScopeNameValue.Number);
 				StackPanel _content = new StackPanel();
 				_content.Children.Add(_serviceName);
 				_content.Children.Add(_servicePrice);
 				_addNewServiceBox = new CustomMessageBox()
 				{
-					Title = "Add new service",
-					Message = "Enter service's info and press Ok",
+					Title = AppResources.UIMessageAddNewService,
+					Message = AppResources.UIMessageEnterServiceInfo,
+					RightButtonContent = AppResources.UICancel,
 					LeftButtonContent = "Ok",
-					RightButtonContent = "Cancel",
 					Content = _content
 				};
 				_addNewServiceBox.Dismissed += OnNewServiceInfoEntered;
@@ -103,6 +105,16 @@ namespace ClientDiary.Pages
 
 		#endregion
 
-		
+		private void BuildLocalizedApplicationBar()
+		{
+			// Set the page's ApplicationBar to a new instance of ApplicationBar.
+			ApplicationBar = new ApplicationBar();
+
+			// Create a new button and set the text value to the localized string from AppResources.
+			ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Images/Icons/add.png", UriKind.Relative));
+			appBarButton.Text = AppResources.UIAddNewService;
+			appBarButton.Click += AddServiceIconButton_Click;
+			ApplicationBar.Buttons.Add(appBarButton);
+		}
 	}
 }

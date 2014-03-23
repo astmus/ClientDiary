@@ -34,6 +34,7 @@ namespace ClientDiary.Pages
 		public ClientsPage()
 		{
 			InitializeComponent();
+			BuildLocalizedApplicationBar();
 			_viewModel = new ClientsViewModel();
 			DataContext = _viewModel;
 		}
@@ -72,8 +73,8 @@ namespace ClientDiary.Pages
 				}
 				else
 				{
-					Utils.InitTextBox(ref _newClientName, "Name");
-					Utils.InitTextBox(ref _newClientPhone, "Phone", InputScopeNameValue.TelephoneNumber);
+					Utils.InitTextBox(ref _newClientName, AppResources.UIName);
+					Utils.InitTextBox(ref _newClientPhone, AppResources.UIPhone, InputScopeNameValue.TelephoneNumber);
 
 					StackPanel _content = new StackPanel();
 					_content.Children.Add(_newClientName);
@@ -98,6 +99,11 @@ namespace ClientDiary.Pages
 
 		void AddNewClient(string name, string phoneNumber)
 		{
+			if (name == String.Empty || name.Length == 0)
+			{
+				MessageBox.Show(AppResources.UIMessagePleaseEnterName);
+				return;
+			}
 			Client client = new Client(name, phoneNumber);
 			_viewModel.AddClient(client);
 		}
@@ -177,5 +183,16 @@ namespace ClientDiary.Pages
 		}
 		#endregion
 
+		private void BuildLocalizedApplicationBar()
+		{
+			// Set the page's ApplicationBar to a new instance of ApplicationBar.
+			ApplicationBar = new ApplicationBar();
+
+			// Create a new button and set the text value to the localized string from AppResources.
+			ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Images/Icons/add.png", UriKind.Relative));
+			appBarButton.Text = AppResources.UIAddNewClient;
+			appBarButton.Click += AddNewClientIconButton_Click;
+			ApplicationBar.Buttons.Add(appBarButton);
+		}
 	}
 }

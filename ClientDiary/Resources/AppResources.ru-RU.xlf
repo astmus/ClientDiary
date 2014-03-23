@@ -44,12 +44,12 @@
         <note from="MultilingualBuild" annotates="source" priority="2">3</note></trans-unit>
         <trans-unit id="Resx/UIAddNewClient" translate="yes" xml:space="preserve">
           <source>Add new client</source>
-          <target state="translated">Добавить нового клиента</target>
+          <target state="translated">Добавить клиента</target>
           
         <note from="MultilingualBuild" annotates="source" priority="2">7</note></trans-unit>
         <trans-unit id="Resx/UIAddNewService" translate="yes" xml:space="preserve">
           <source>Add new service</source>
-          <target state="translated">Добавить новую службу</target>
+          <target state="translated">Добавить новую услугу</target>
           
         <note from="MultilingualBuild" annotates="source" priority="2">5</note></trans-unit>
         <trans-unit id="Resx/UIAddRecord" translate="yes" xml:space="preserve">
@@ -99,7 +99,7 @@
         <note from="MultilingualBuild" annotates="source" priority="2">7</note></trans-unit>
         <trans-unit id="Resx/UIMessageArentAnyServices" translate="yes" xml:space="preserve">
           <source>There aren't any services</source>
-          <target state="translated">Служб пока нет</target>
+          <target state="translated">Услуг пока нет</target>
           
         <note from="MultilingualBuild" annotates="source" priority="2">6</note></trans-unit>
         <trans-unit id="Resx/UIMessageEnterClientInfo" translate="yes" xml:space="preserve">
@@ -143,10 +143,10 @@
           
         <note from="MultilingualBuild" annotates="source" priority="2">9</note></trans-unit>
         <trans-unit id="Resx/UISettings" translate="yes" xml:space="preserve">
-          <source>settings</source>
-          <target state="translated">настройки</target>
+          <source>Settings</source>
+          <target state="needs-review-translation">Hастройки</target>
           
-        <note from="MultilingualBuild" annotates="source" priority="2">2</note></trans-unit>
+        <note from="MultilingualBuild" annotates="source" priority="2">2</note><note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
         <trans-unit id="Resx/UIStatistic" translate="yes" xml:space="preserve">
           <source>Statistic</source>
           <target state="translated">Статистика</target>
@@ -168,6 +168,14 @@
         <trans-unit translate="yes" id="Resx/UIMessagePleaseSelectServices" xml:space="preserve">
           <source>Please select at least one service</source>
           <target state="new">Please select at least one service</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/MenuItemDelete" xml:space="preserve">
+          <source>delete</source>
+          <target state="translated">удалить</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/UIMessagePleaseEnterName" xml:space="preserve">
+          <source>Please enter user name</source>
+          <target state="translated">Пожалуйста введите имя пользователя</target>
         </trans-unit>
       </group>
     </body>

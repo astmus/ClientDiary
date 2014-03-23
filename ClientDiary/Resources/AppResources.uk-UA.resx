@@ -146,7 +146,7 @@
     <comment>3</comment>
   </data>
   <data name="UIAddNewClient" xml:space="preserve">
-    <value>Додати новий клієнт</value>
+    <value>Додати клієнта</value>
     <comment>7</comment>
   </data>
   <data name="UIAddNewService" xml:space="preserve">
@@ -158,7 +158,7 @@
     <comment>3</comment>
   </data>
   <data name="UIByHands" xml:space="preserve">
-    <value>За руки</value>
+    <value>В ручну</value>
     <comment>0</comment>
   </data>
   <data name="UICancel" xml:space="preserve">
@@ -174,7 +174,7 @@
     <comment>4</comment>
   </data>
   <data name="UIFromContacts" xml:space="preserve">
-    <value>Від контактів</value>
+    <value>З контактів</value>
     <comment>9</comment>
   </data>
   <data name="UIMesageAddNewClient" xml:space="preserve">
@@ -186,11 +186,11 @@
     <comment>1</comment>
   </data>
   <data name="UIMessageArentAnyClients" xml:space="preserve">
-    <value>Є немає будь-яких клієнтів</value>
+    <value>Немає жодного клієнтіа</value>
     <comment>7</comment>
   </data>
   <data name="UIMessageArentAnyServices" xml:space="preserve">
-    <value>Є не будь-які послуги</value>
+    <value>Немає послуг</value>
     <comment>6</comment>
   </data>
   <data name="UIMessageEnterClientInfo" xml:space="preserve">
@@ -238,4 +238,4 @@
     <comment>1</comment>
   </data>
   
-<data name="UIMessageHowToAddNewClient" xml:space="preserve"><value>Як додати нового клиента?</value></data></root>
+<data name="UIMessageHowToAddNewClient" xml:space="preserve"><value>Як додати нового клиента?</value></data><data name="MenuItemDelete" xml:space="preserve"><value>видалити</value></data><data name="UIMessagePleaseEnterName" xml:space="preserve"><value>Вкажіть ім'я користувача</value></data></root>

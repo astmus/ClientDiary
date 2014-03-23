@@ -44,7 +44,7 @@
         <note from="MultilingualBuild" annotates="source" priority="2">3</note></trans-unit>
         <trans-unit id="Resx/UIAddNewClient" translate="yes" xml:space="preserve">
           <source>Add new client</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Додати новий клієнт</target>
+          <target state="translated">Додати клієнта</target>
           
         <note from="MultilingualBuild" annotates="source" priority="2">7</note></trans-unit>
         <trans-unit id="Resx/UIAddNewService" translate="yes" xml:space="preserve">
@@ -59,7 +59,7 @@
         <note from="MultilingualBuild" annotates="source" priority="2">3</note></trans-unit>
         <trans-unit id="Resx/UIByHands" translate="yes" xml:space="preserve">
           <source>By hands</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">За руки</target>
+          <target state="translated">В ручну</target>
           
         <note from="MultilingualBuild" annotates="source" priority="2">0</note></trans-unit>
         <trans-unit id="Resx/UICancel" translate="yes" xml:space="preserve">
@@ -79,7 +79,7 @@
         <note from="MultilingualBuild" annotates="source" priority="2">4</note></trans-unit>
         <trans-unit id="Resx/UIFromContacts" translate="yes" xml:space="preserve">
           <source>From contacts</source>
-          <target state="translated" state-qualifier="tm-suggestion">Від контактів</target>
+          <target state="translated">З контактів</target>
           
         <note from="MultilingualBuild" annotates="source" priority="2">9</note></trans-unit>
         <trans-unit id="Resx/UIMesageAddNewClient" translate="yes" xml:space="preserve">
@@ -94,12 +94,12 @@
         <note from="MultilingualBuild" annotates="source" priority="2">1</note></trans-unit>
         <trans-unit id="Resx/UIMessageArentAnyClients" translate="yes" xml:space="preserve">
           <source>There aren't any clients</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Є немає будь-яких клієнтів</target>
+          <target state="translated">Немає жодного клієнтіа</target>
           
         <note from="MultilingualBuild" annotates="source" priority="2">7</note></trans-unit>
         <trans-unit id="Resx/UIMessageArentAnyServices" translate="yes" xml:space="preserve">
           <source>There aren't any services</source>
-          <target state="needs-review-translation" state-qualifier="mt-suggestion">Є не будь-які послуги</target>
+          <target state="translated">Немає послуг</target>
           
         <note from="MultilingualBuild" annotates="source" priority="2">6</note></trans-unit>
         <trans-unit id="Resx/UIMessageEnterClientInfo" translate="yes" xml:space="preserve">
@@ -143,10 +143,10 @@
           
         <note from="MultilingualBuild" annotates="source" priority="2">9</note></trans-unit>
         <trans-unit id="Resx/UISettings" translate="yes" xml:space="preserve">
-          <source>settings</source>
+          <source>Settings</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Настройки</target>
           
-        <note from="MultilingualBuild" annotates="source" priority="2">2</note></trans-unit>
+        <note from="MultilingualBuild" annotates="source" priority="2">2</note><note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note></trans-unit>
         <trans-unit id="Resx/UIStatistic" translate="yes" xml:space="preserve">
           <source>Statistic</source>
           <target state="needs-review-translation" state-qualifier="mt-suggestion">Статистика</target>
@@ -168,6 +168,14 @@
         <trans-unit translate="yes" id="Resx/UIMessagePleaseSelectServices" xml:space="preserve">
           <source>Please select at least one service</source>
           <target state="new">Please select at least one service</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/MenuItemDelete" xml:space="preserve">
+          <source>delete</source>
+          <target state="translated">видалити</target>
+        </trans-unit>
+        <trans-unit translate="yes" id="Resx/UIMessagePleaseEnterName" xml:space="preserve">
+          <source>Please enter user name</source>
+          <target state="translated">Вкажіть ім'я користувача</target>
         </trans-unit>
       </group>
     </body>

@@ -26,15 +26,14 @@ namespace ClientDiary.Models.ViewModels
 			// Sample data; replace with real data
 			//this.Records.Add(new Appointment() { ID = "0", Name = "client1", Services = "service procedure 1" });
 			//this.Records.Add(new Appointment() { ID = "1", Name = "client2", Services = "service procedure 2" });
-			App.DBManager.Appointments.OrderBy(x => x.DueDate).ToList().ForEach(x => { Records.Add(x); });
+			App.DBManager.Appointments.Where(ap=>ap.DueDate > DateTime.Now).OrderBy(x => x.DueDate).ToList().ForEach(x => { Records.Add(x); });
 			this.IsDataLoaded = true;
 		}
 
 		public void AddAppointment(Appointment appointment)
 		{		
 			int i = 0;
-			while (Records[i].DueDate < appointment.DueDate)
-				i++;
+			for (i = 0; Records.Count > 0 && i < Records.Count && Records[i].DueDate < appointment.DueDate; ++i) ;
 
 			Records.Insert(i, appointment);
 			App.DBManager.Appointments.InsertOnSubmit(appointment);
